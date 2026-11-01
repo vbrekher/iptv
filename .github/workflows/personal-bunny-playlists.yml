@@ -42,3 +42,18 @@ jobs:
         run: python3 -m py_compile tools/sync_bunny_countries.py
       - name: Offline country mirror completeness, group index and preservation
         run: python3 tools/sync_bunny_countries.py
+      - name: Download every official country playlist (no Bunny upload)
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          import sync_bunny_countries as sync
+          output = Path(os.environ["RUNNER_TEMP"]) / "country-live-acceptance"
+          report = sync.create_country_mirror(output, workers=8)
+          assert report["country_playlists"] > 100
+          assert (output / "countries" / "ua.m3u").read_bytes().startswith(b"#EXTM3U")
+          assert (output / "countries" / "us.m3u").read_bytes().startswith(b"#EXTM3U")
+          assert (output / "index.country.m3u").read_bytes().startswith(b"#EXTM3U")
+          print("OFFICIAL_COUNTRIES_MIRROR_BUILD_PASS", report["country_playlists"])
+          PY
