@@ -10,7 +10,7 @@ files only**. It does not host video or bypass subscriptions.
 
 ```bash
 mkdir -p "$HOME/iptv-bunny" && cd "$HOME/iptv-bunny"
-for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py; do
+for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py sync_bunny_countries.py; do
   curl -fsSL --retry 3 \
     "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" \
     -o "$file" || exit 1
@@ -32,7 +32,7 @@ chat. Requires Python 3.9+, no npm dependencies.
 ## What the installer does
 
 1. Validates Bunny Account API permissions.
-2. Downloads the latest public IPTV index, category and Ukraine lists plus
+2. Downloads the latest public IPTV index, categories, and all listed country playlists plus
    frozen historical adult candidate links. Opt-in community candidate inputs
    are enabled by default, with `--without-community` to omit them.
 3. Checks historical adult HLS manifest and a short sample of a segment without
@@ -59,6 +59,53 @@ https://<your-pull-zone>.b-cdn.net/iptv/countries/ua.m3u
 Copy any M3U URL into Lampa's playlist importer. If no adult candidate passes,
 `adult.m3u` contains no channel entries and the public index is still published
 without the unverified adult streams.
+
+## Country playlists: all countries on your existing Bunny
+
+The first installer version published only `countries/ua.m3u`. This was an
+implementation omission, not a restriction of Bunny or IPTV-org.
+
+**Update only the installer and country mirror module**, while staying in the
+same directory so the existing `.bunny-iptv-state.json` is reused:
+
+```bash
+cd "$HOME/iptv-bunny"
+for file in auto_bunny_setup.py sync_bunny_countries.py; do
+  curl -fsSL --retry 3 \
+    "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" -o "$file"
+done
+python3 auto_bunny_setup.py --countries-only
+```
+
+Enter only the Bunny **Account API Key**, hidden by the terminal.
+`--countries-only` will **never create new Storage/Pull Zones**. It uses
+the zones from the existing local state and downloads every country listed in
+IPTV-org's official `PLAYLISTS.md` index, plus the official grouped country
+playlist. All listed files are checked for the M3U header before uploading.
+If any listed country download fails, the upload does not start.
+
+After success, examples:
+
+```text
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u
+```
+
+These are *expected paths after the upload succeeds*, not a guarantee they
+already exist. The command prints the exact count from the official
+country-list index, a local report at
+`dist/iptv-published/catalog/country-sync-report.json`, and the CDN URLs.
+The public country playlists are mirrors of IPTV-org, not personally verified
+for playback; existing separately tested adult M3Us remain untouched.
+
+The full `python3 auto_bunny_setup.py` command also populates all country
+files on future runs. Use `--countries-only` now to **skip** rescanning adult
+candidate streams, reuploading 39 files, and reprovisioning anything.
 
 ## Recover from Bunny Storage 401 without creating duplicate zones
 
