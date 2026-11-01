@@ -293,12 +293,32 @@ def self_test():
                 return self.pull[0]
             raise AssertionError(path)
     fake = FakeAPI()
-    state = {"name": "lampa-iptv-test"}
+    state = {"name": "lampa-iptv-test", "region": "DE"}
     z = storage_zone(fake, state)
     p = pull_zone(fake, state, z["id"])
     storage_zone(fake, state)
     pull_zone(fake, state, z["id"])
     assert fake.created == 2 and p["hostname"].endswith(".b-cdn.net")
+    assert z["region"] == "de"
+    # Exercise an initial Bunny Storage 401 without creating a new paid zone,
+    # and ensure retries refresh zone settings and do not persist credentials.
+    saved_publish, saved_sleep = catalog.publish, time.sleep
+    calls = []
+    old_env = os.environ.get("BUNNY_STORAGE_PASSWORD")
+    def fake_upload(folder, prefix):
+        calls.append((folder, prefix, os.environ.get("BUNNY_STORAGE_REGION")))
+        assert os.environ.get("BUNNY_STORAGE_PASSWORD") == "fake"
+        if len(calls) == 1:
+            raise HTTPError("https://storage.bunnycdn.com", 401, "Unauthorized", None, None)
+    try:
+        catalog.publish = fake_upload
+        time.sleep = lambda _: None
+        publish(fake, state, z, p, Path("."))
+        assert len(calls) == 2 and calls[1][2] == "de"
+        assert fake.created == 2, "Retry must not create additional zones"
+        assert os.environ.get("BUNNY_STORAGE_PASSWORD") == old_env
+    finally:
+        catalog.publish, time.sleep = saved_publish, saved_sleep
     print("ONE_CLICK_BUNNY_SELF_TEST_PASS")
 
 
@@ -351,7 +371,7 @@ def main():
     DEST.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(READY, DEST)
     base = "https://" + pull["hostname"] + "/iptv/"
-    print("\\nLampa M3U addresses:")
+    print("\nLampa M3U addresses:")
     for path in ("index.m3u", "adult.m3u", "categories/xxx.m3u",
                  "countries/ua.m3u"):
         print(base + path)
