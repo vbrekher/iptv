@@ -62,16 +62,16 @@ class PublicRedirects(HTTPRedirectHandler):
 OPENER = build_opener(PublicRedirects)
 
 
-def get_data(url: str, timeout: float, max_bytes: int, accept: str) -> tuple[bytes, str, int]:
+def get_data(url: str, timeout: float, max_bytes: int, accept: str, allow_truncated: bool = False) -> tuple[bytes, str, int]:
     if not public_url(url):
         raise ValueError("private, invalid or credentialed URL")
     request = Request(url, headers={"Accept": accept, "User-Agent": "Mozilla/5.0 (IPTV-free-check)"})
     with OPENER.open(request, timeout=timeout) as response:
-        body = response.read(max_bytes + 1)
+        body = response.read(max_bytes if allow_truncated else max_bytes + 1)
         effective = response.geturl()
         if not public_url(effective):
             raise ValueError("unsafe final URL")
-        if len(body) > max_bytes:
+        if not allow_truncated and len(body) > max_bytes:
             raise ValueError("response exceeds size limit")
         if response.status not in (200, 206):
             raise ValueError("unexpected HTTP status")
@@ -110,7 +110,7 @@ def check_stream(url: str, timeout: float) -> tuple[bool, str]:
             if "#EXTINF" not in text:
                 return False, "manifest_has_no_segments"
             # Read only a tiny sample of the first media segment, never copy video.
-            segment, _, status = get_data(resolved, timeout, 1024, "*/*")
+            segment, _, _ = get_data(resolved, timeout, 1024, "*/*", allow_truncated=True)
             if not segment or segment.lstrip().lower().startswith((b"<!doctype html", b"<html")):
                 return False, "segment_not_media"
             return True, "public_hls_manifest_and_segment"
