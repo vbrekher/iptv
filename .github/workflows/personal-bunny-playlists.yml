@@ -5,6 +5,7 @@ on:
     paths:
       - 'tools/personal_bunny_playlists.py'
       - 'tools/free_hls_filter.py'
+      - 'tools/auto_bunny_setup.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read

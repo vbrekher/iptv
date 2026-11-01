@@ -28,6 +28,7 @@ import free_hls_filter as verifier
 API = "https://api.bunny.net"
 STATE = Path(".bunny-iptv-state.json")
 DEST = Path("dist/iptv-published")
+READY = Path("dist/iptv-ready")
 VALID_NAME = re.compile(r"^[a-z0-9-]{4,60}$")
 
 
@@ -113,9 +114,13 @@ def storage_zone(api, state):
         raise SetupError("Storage Zone ID missing")
     detail = api.call("GET", "/storagezone/" + str(zone["Id"]))
     password = detail.get("Password") or zone.get("Password")
-    if not password:
-        raise SetupError("Storage Zone password unavailable from Bunny API")
-    return {"id": zone["Id"], "name": name, "password": password}
+    region = (detail.get("Region") or zone.get("Region") or state.get("region") or "").lower()
+    if region not in catalog.REGION_HOSTS:
+        raise SetupError(f"Unknown Storage primary region {region!r}; refusing wrong-region upload")
+    if not isinstance(password, str) or not password.strip() or set(password) == {"*"}:
+        raise SetupError("Storage Zone write password unavailable; Bunny Account key cannot upload files")
+    print("Storage primary region:", region, "| upload endpoint:", catalog.REGION_HOSTS[region])
+    return {"id": zone["Id"], "name": name, "password": password, "region": region}
 
 
 def pull_zone(api, state, storage_id):
@@ -180,25 +185,49 @@ def prepare_public_candidates(generated, checked, published):
     return len(verified), len(merged)
 
 
-def publish(storage, pull, published):
-    # Existing uploader handles Storage API PUT and proper Content-Type.
-    # Credentials are temporary environment variables only for this Python process.
-    variables = {
-        "BUNNY_STORAGE_ZONE": storage["name"],
-        "BUNNY_STORAGE_REGION": "de",
-        "BUNNY_CDN_HOST": pull["hostname"],
-        "BUNNY_STORAGE_PASSWORD": storage["password"],
-    }
-    previous = {k: os.environ.get(k) for k in variables}
-    try:
-        os.environ.update(variables)
-        catalog.publish(published, "iptv")
-    finally:
-        for key, value in previous.items():
-            if value is None:
-                os.environ.pop(key, None)
-            else:
-                os.environ[key] = value
+def publish(api, state, storage, pull, published):
+    """Retry 401 on freshly created Storage Zones; refresh credentials each retry.
+
+    No credentials are written to files. Account API key is never used on
+    the Storage API, only the Storage Zone's writable Password.
+    """
+    for attempt in range(1, 7):
+        variables = {
+            "BUNNY_STORAGE_ZONE": storage["name"],
+            "BUNNY_STORAGE_REGION": storage["region"],
+            "BUNNY_CDN_HOST": pull["hostname"],
+            "BUNNY_STORAGE_PASSWORD": storage["password"],
+        }
+        previous = {k: os.environ.get(k) for k in variables}
+        try:
+            os.environ.update(variables)
+            catalog.publish(published, "iptv")
+            return
+        except HTTPError as error:
+            if error.code not in (401, 403):
+                raise SetupError(f"Bunny Storage upload HTTP {error.code}; no resources were recreated") from None
+            if attempt == 6:
+                raise SetupError(
+                    f"Bunny Storage still returns HTTP {error.code} after 6 attempts. "
+                    f"Zone: {storage['name']}, primary region: {storage['region']}, "
+                    f"endpoint: {catalog.REGION_HOSTS[storage['region']]}. "
+                    "Bunny requires the WRITE Storage Zone Password (not the Account API Key "
+                    "or ReadOnlyPassword). Check Bunny Storage > FTP & API Access and the "
+                    "primary storage region. Re-run with --upload-only; resources will be reused."
+                ) from None
+            wait = min(2 ** attempt, 16)
+            print(
+                f"Storage API HTTP {error.code} (attempt {attempt}/6). "
+                f"Refreshing zone credentials and retrying in {wait}s; no new resources..."
+            )
+        finally:
+            for key, value in previous.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+        time.sleep(wait)
+        storage = storage_zone(api, state)
 
 
 def verify_public_cdn(hostname):
@@ -264,12 +293,32 @@ def self_test():
                 return self.pull[0]
             raise AssertionError(path)
     fake = FakeAPI()
-    state = {"name": "lampa-iptv-test"}
+    state = {"name": "lampa-iptv-test", "region": "DE"}
     z = storage_zone(fake, state)
     p = pull_zone(fake, state, z["id"])
     storage_zone(fake, state)
     pull_zone(fake, state, z["id"])
     assert fake.created == 2 and p["hostname"].endswith(".b-cdn.net")
+    assert z["region"] == "de"
+    # Exercise an initial Bunny Storage 401 without creating a new paid zone,
+    # and ensure retries refresh zone settings and do not persist credentials.
+    saved_publish, saved_sleep = catalog.publish, time.sleep
+    calls = []
+    old_env = os.environ.get("BUNNY_STORAGE_PASSWORD")
+    def fake_upload(folder, prefix):
+        calls.append((folder, prefix, os.environ.get("BUNNY_STORAGE_REGION")))
+        assert os.environ.get("BUNNY_STORAGE_PASSWORD") == "fake"
+        if len(calls) == 1:
+            raise HTTPError("https://storage.bunnycdn.com", 401, "Unauthorized", None, None)
+    try:
+        catalog.publish = fake_upload
+        time.sleep = lambda _: None
+        publish(fake, state, z, p, Path("."))
+        assert len(calls) == 2 and calls[1][2] == "de"
+        assert fake.created == 2, "Retry must not create additional zones"
+        assert os.environ.get("BUNNY_STORAGE_PASSWORD") == old_env
+    finally:
+        catalog.publish, time.sleep = saved_publish, saved_sleep
     print("ONE_CLICK_BUNNY_SELF_TEST_PASS")
 
 
@@ -277,6 +326,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--without-community", action="store_true")
+    parser.add_argument("--upload-only", action="store_true", help="Resume upload from dist/iptv-ready; no stream probing")
     args = parser.parse_args()
     if args.self_test:
         self_test()
@@ -288,36 +338,46 @@ def main():
     list_zones(api, "storagezone")  # validate account access before creating
     state = load_state(STATE)
     print("Using resource group:", state["name"])
-    with tempfile.TemporaryDirectory(prefix="lampa-iptv-") as folder:
-        root = Path(folder)
-        candidates = root / "candidates"
-        checked = root / "checked"
-        out = root / "public"
-        catalog.prepare(candidates, True, "ua", not args.without_community)
-        outcome = verifier.run(argparse.Namespace(
-            input=str(candidates), output=str(checked), workers=6, timeout=7.,
-            publish=False, prefix="iptv",
-        ))
-        if outcome not in (0, 2):
-            raise SetupError("Stream verification failed")
-        adult_count, combined_count = prepare_public_candidates(candidates, checked, out)
-        print("Adult candidates responding anonymously:", adult_count)
-        print("Public catalog + verified adult candidates:", combined_count)
-        storage = storage_zone(api, state)
-        pull = pull_zone(api, state, storage["id"])
-        publish(storage, pull, out)
-        if DEST.exists():
-            shutil.rmtree(DEST)
-        DEST.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(out, DEST)
-        base = "https://" + pull["hostname"] + "/iptv/"
-        print("\nLampa M3U addresses:")
-        for path in ("index.m3u", "adult.m3u", "categories/xxx.m3u",
-                     "countries/ua.m3u"):
-            print(base + path)
-        print("Public CDN index:", "VERIFIED" if verify_public_cdn(pull["hostname"])
-              else "NOT VERIFIED (check Pull Zone origin and cache)")
-        print("Report:", DEST / "catalog/report.json")
+    if args.upload_only:
+        if not (READY / "index.m3u").is_file() or not (READY / "adult.m3u").is_file():
+            raise SetupError("No saved dist/iptv-ready playlist: first run without --upload-only")
+        print("Resuming saved playlists without rechecking streams:", READY)
+    else:
+        with tempfile.TemporaryDirectory(prefix="lampa-iptv-") as folder:
+            root = Path(folder)
+            candidates = root / "candidates"
+            checked = root / "checked"
+            out = root / "public"
+            catalog.prepare(candidates, True, "ua", not args.without_community)
+            outcome = verifier.run(argparse.Namespace(
+                input=str(candidates), output=str(checked), workers=6, timeout=7.,
+                publish=False, prefix="iptv",
+            ))
+            if outcome not in (0, 2):
+                raise SetupError("Stream verification failed")
+            adult_count, combined_count = prepare_public_candidates(candidates, checked, out)
+            print("Adult candidates responding anonymously:", adult_count)
+            print("Public catalog + verified adult candidates:", combined_count)
+            if READY.exists():
+                shutil.rmtree(READY)
+            READY.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copytree(out, READY)
+            print("Saved playlists locally for safe retry:", READY)
+    storage = storage_zone(api, state)
+    pull = pull_zone(api, state, storage["id"])
+    publish(api, state, storage, pull, READY)
+    if DEST.exists():
+        shutil.rmtree(DEST)
+    DEST.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(READY, DEST)
+    base = "https://" + pull["hostname"] + "/iptv/"
+    print("\nLampa M3U addresses:")
+    for path in ("index.m3u", "adult.m3u", "categories/xxx.m3u",
+                 "countries/ua.m3u"):
+        print(base + path)
+    print("Public CDN index:", "VERIFIED" if verify_public_cdn(pull["hostname"])
+          else "NOT VERIFIED (check Pull Zone origin and cache)")
+    print("Report:", DEST / "catalog/report.json")
     return 0
 
 
