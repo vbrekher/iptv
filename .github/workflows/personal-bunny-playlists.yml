@@ -143,3 +143,19 @@ jobs:
               assert adulttest.source_url(s).startswith('https://raw.githubusercontent.com/')
           print('ADULTTEST_SOURCE_INVENTORY_PASS', len(adulttest.SOURCES))
           PY
+
+      - name: Collect Adulttest source metadata (no stream probes, no upload)
+        run: |
+          python3 - <<'PY'
+          import collections,sys
+          sys.path.insert(0,'tools')
+          import adulttest
+          results, rejected, sources = adulttest.collect()
+          print('ADULTTEST_PUBLIC_CANDIDATES_FOUND', len(results),
+                'SOURCES', len(sources), 'EARLY_REJECTIONS', sum(rejected.values()))
+          assert len(sources) == 16
+          assert len(results) >= 30
+          assert all(adulttest.safe_stream_url(candidate.url)[0] for candidate in results)
+          assert all(not adulttest.CAM_WORDS.search(candidate.name) for candidate in results)
+          print('ADULTTEST_SOURCE_DISCOVERY_PASS')
+          PY
