@@ -318,6 +318,8 @@ def run(args) -> int:
         raise RuntimeError("Existing .bunny-iptv-state.json required: cd $HOME/iptv-bunny")
     root = Path(args.output)
     root.mkdir(parents=True, exist_ok=True)
+    if args.publish_only:
+        return publish_saved(root)
     candidates, rejected, sources = collect()
     if not candidates:
         raise RuntimeError("No safe stream candidates found; no upload")
@@ -386,8 +388,23 @@ def run(args) -> int:
         print("DRY RUN: no Bunny upload. Local:", root.resolve())
         return 0
 
-    # The installer already knows how to securely retrieve the zone write key
-    # from Bunny, but these run modes must NEVER create resources.
+    return publish_saved(root)
+
+
+def publish_saved(root: Path) -> int:
+    """Resume a completed successful probe without repeating source scans."""
+    playlist = root / "adulttest.m3u"
+    report_file = root / "adulttest-report.json"
+    if not playlist.is_file() or not report_file.is_file():
+        raise RuntimeError("Missing completed local Adulttest files. Run the normal test first.")
+    report = json.loads(report_file.read_text(encoding="utf-8"))
+    if report.get("open_anonymous_hls", 0) <= 0:
+        raise RuntimeError("No previously tested accessible streams; refusing to publish an empty M3U")
+    local_data = playlist.read_bytes()
+    if not local_data.startswith(b"#EXTM3U") or len(iptv.parse_m3u(local_data.decode("utf-8-sig"))) != report["open_anonymous_hls"]:
+        raise RuntimeError("Local Adulttest playlist does not match validated report; rerun probe")
+    if not bunny.STATE.is_file():
+        raise RuntimeError("Missing existing .bunny-iptv-state.json; do not recreate Bunny zones")
     state = bunny.load_state(bunny.STATE)
     key = getpass.getpass("Bunny Account API Key (hidden): ")
     api = bunny.BunnyAPI(key)
@@ -402,17 +419,27 @@ def run(args) -> int:
     pull = bunny.pull_zone(api, state, storage["id"])
     with tempfile.TemporaryDirectory(prefix="lampa-adulttest-upload-") as temp:
         upload = Path(temp)
-        (upload / "adulttest.m3u").write_bytes((root / "adulttest.m3u").read_bytes())
-        # Publish only /iptv/adulttest.m3u. No report/candidate URLs on public CDN.
+        (upload / "adulttest.m3u").write_bytes(local_data)
+        # The only public Bunny object modified is /iptv/adulttest.m3u.
         bunny.publish(api, state, storage, pull, upload)
     report["adulttest_uploaded"] = True
     report["cdn_url"] = "https://" + pull["hostname"] + "/iptv/adulttest.m3u"
-    (root / "adulttest-report.json").write_text(
+    # A reachable CDN is different from a successful Storage PUT.
+    report["cdn_verified"] = False
+    try:
+        request = Request(report["cdn_url"] + "?v=" + str(__import__("time").time_ns()),
+                          headers={"User-Agent": "Lampa-adulttest-check/1.0"})
+        with urlopen(request, timeout=15) as response:
+            report["cdn_verified"] = (response.status == 200 and response.read(7) == b"#EXTM3U")
+    except (HTTPError, URLError, OSError, TimeoutError):
+        pass
+    report_file.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     print("\nADULTTEST_UPLOAD_COMPLETE:", report["cdn_url"])
-    print("OPEN:", len(good), "/", len(candidates))
-    print("LOCAL REPORT:", (root / "adulttest-report.json").resolve())
+    print("CDN_CHECK:", "VERIFIED" if report["cdn_verified"] else "NOT_VERIFIED (check propagation)")
+    print("OPEN:", report["open_anonymous_hls"], "/", report["candidate_urls_deduplicated"])
+    print("LOCAL REPORT:", report_file.resolve())
     return 0
 
 
@@ -454,11 +481,14 @@ def main():
     parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--timeout", type=float, default=7)
     parser.add_argument("--dry-run", action="store_true", help="Test all streams but do not upload to Bunny")
+    parser.add_argument("--publish-only", action="store_true", help="Upload previous verified local M3U without repeating probes")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.self_test:
         self_test()
         return 0
+    if args.dry_run and args.publish_only:
+        parser.error("--dry-run and --publish-only cannot be combined")
     if not (1 <= args.workers <= 12 and 1 <= args.timeout <= 25):
         parser.error("workers must be 1..12 and timeout 1..25 seconds")
     try:
