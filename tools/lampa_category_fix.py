@@ -99,6 +99,9 @@ def build(source: Path, output: Path) -> dict:
             lite_report["playlists"][name]["per_category"] = by_group
             lite_report["playlists"][name]["bytes"] = (output / name).stat().st_size
             assert all(v >= 3 or k == "XXX" for k, v in by_group.items())
+    (output / "catalog/lampa-lite-report.json").write_text(
+        json.dumps(lite_report, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8"
+    )
     report = {
         "source_entries": len(entries),
         "repaired_entries": len(repaired),
@@ -109,6 +112,13 @@ def build(source: Path, output: Path) -> dict:
         "stream_health_retested": False,
         "bunny_video_hosted": False,
     }
+    # New immutable URL identities bypass CUB/Lampa's old playlist cache entries.
+    for source_name, alias_name in (
+        ("index.category.m3u", "index.clean.m3u"),
+        ("lampa-lite.m3u", "lampa-clean-lite.m3u"),
+        ("lampa.m3u", "lampa-clean.m3u"),
+    ):
+        (output / alias_name).write_bytes((output / source_name).read_bytes())
     (output / "catalog/category-repair-report.json").write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
