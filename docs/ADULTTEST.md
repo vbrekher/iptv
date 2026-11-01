@@ -52,9 +52,9 @@ one IPTV NSFW blocklist). Some are exact mirrors or archives; 16 does not mean
 - dist/adulttest/adulttest.m3u: only successful anonymous HLS candidate links,
   the one file uploaded to /iptv/adulttest.m3u.
 
-The playlist includes a human-readable name, optional original tvg-logo
-(never invented), tvg-id where provided and a SINGLE group-title, either
-Adult TV or Erotic FAST. Broken, private, obvious subscription-token, cam
+The playlist includes a human-readable name, source-provided tvg-logo
+or an official IPTV-org logos.json match for a known tvg-id (never invented),
+tvg-id where provided and a SINGLE group-title, either Adult TV or Erotic FAST. Broken, private, obvious subscription-token, cam
 advertising, embedded user/password, teen-labelled and VOD-only candidates
 are excluded. No paid-service bypass, DRM circumvention, custom stream
 headers, or reverse proxy is provided.
