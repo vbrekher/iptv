@@ -1,0 +1,29 @@
+name: personal IPTV builder (offline)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/personal_bunny_playlists.py'
+      - '.github/workflows/personal-bunny-playlists.yml'
+permissions:
+  contents: read
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile standalone builder
+        run: python3 -m py_compile tools/personal_bunny_playlists.py
+      - name: Run offline parser and safety tests
+        run: python3 tools/personal_bunny_playlists.py --self-test
+      - name: Build from historical snapshot (no publication)
+        run: |
+          python3 tools/personal_bunny_playlists.py --no-public --output "$RUNNER_TEMP/iptv-personal"
+          python3 -c 'import json,os,pathlib; p=pathlib.Path(os.environ["RUNNER_TEMP"])/"iptv-personal"; r=json.loads((p/"catalog"/"report.json").read_text()); assert r["historical_adult_entries"] >= 60; assert r["live_streams_tested"] == 0; assert (p/"adult.m3u").read_text().startswith("#EXTM3U"); print("HISTORIC_M3U_BUILD_PASS")'
+      - name: Build merged index, categories and Ukraine (no publication)
+        run: |
+          python3 tools/personal_bunny_playlists.py --output "$RUNNER_TEMP/iptv-complete" --country ua
+          python3 -c 'import json,os,pathlib; p=pathlib.Path(os.environ["RUNNER_TEMP"])/"iptv-complete"; r=json.loads((p/"catalog"/"report.json").read_text()); assert r["public_entries"] > 1000; assert r["combined_entries"] > r["public_entries"]; assert (p/"categories"/"xxx.m3u").exists(); assert (p/"countries"/"ua.m3u").exists(); assert (p/"index.m3u").stat().st_size > 100000; print("FULL_M3U_BUILD_PASS")'
