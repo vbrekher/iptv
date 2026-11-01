@@ -24,6 +24,7 @@ from urllib.request import Request, urlopen
 
 import personal_bunny_playlists as catalog
 import free_hls_filter as verifier
+import sync_bunny_countries as country_sync
 
 API = "https://api.bunny.net"
 STATE = Path(".bunny-iptv-state.json")
@@ -230,6 +231,28 @@ def publish(api, state, storage, pull, published):
         storage = storage_zone(api, state)
 
 
+def sync_all_countries(api, state, storage, pull):
+    """Add every official country playlist without changing existing M3Us."""
+    with tempfile.TemporaryDirectory(prefix="lampa-iptv-countries-") as directory:
+        staging = Path(directory) / "mirror"
+        result = country_sync.create_country_mirror(staging)
+        # Publish only country files + index.country.m3u; preserve adult/index.
+        publish(api, state, storage, pull, staging)
+        country_sync.merge_local_mirror(staging, READY, DEST)
+        base = "https://" + pull["hostname"] + "/iptv/"
+        print("\nCOUNTRY_PLAYLISTS_PUBLISHED:", result["country_playlists"])
+        print("All countries grouped:", base + "index.country.m3u")
+        print("Example Ukraine:", base + "countries/ua.m3u")
+        print("Example USA:", base + "countries/us.m3u")
+        print("Example Germany:", base + "countries/de.m3u")
+        print("Example Netherlands:", base + "countries/nl.m3u")
+        print("Example Poland:", base + "countries/pl.m3u")
+        print("Example United Kingdom:", base + "countries/uk.m3u")
+        print("Local country index:", DEST / "catalog/country-sync-report.json")
+        print("Country lists exclude the separately verified adult playlist.")
+        return result
+
+
 def verify_public_cdn(hostname):
     for attempt in range(4):
         try:
@@ -319,6 +342,7 @@ def self_test():
         assert os.environ.get("BUNNY_STORAGE_PASSWORD") == old_env
     finally:
         catalog.publish, time.sleep = saved_publish, saved_sleep
+    country_sync.self_test()
     print("ONE_CLICK_BUNNY_SELF_TEST_PASS")
 
 
@@ -327,17 +351,33 @@ def main():
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--without-community", action="store_true")
     parser.add_argument("--upload-only", action="store_true", help="Resume upload from dist/iptv-ready; no stream probing")
+    parser.add_argument("--countries-only", action="store_true",
+                        help="Only upload all official country lists to existing Bunny zones")
     args = parser.parse_args()
     if args.self_test:
         self_test()
         return 0
+    if args.countries_only and args.upload_only:
+        parser.error("--countries-only and --upload-only are mutually exclusive")
     print("Lampa IPTV Bunny setup — only M3U files; Bunny resources incur charges.")
+    if args.countries_only and not STATE.exists():
+        raise SetupError("Missing existing .bunny-iptv-state.json; run from the original setup directory")
     api_key = getpass.getpass("Bunny Account API Key (hidden): ")
     api = BunnyAPI(api_key)
     api_key = ""
     list_zones(api, "storagezone")  # validate account access before creating
     state = load_state(STATE)
     print("Using resource group:", state["name"])
+    if args.countries_only:
+        # Never create billable zones in countries-only mode.
+        if not named(list_zones(api, "storagezone"), state["name"] + "-storage"):
+            raise SetupError("Original Storage Zone not found; countries-only will not create zones")
+        if not named(list_zones(api, "pullzone"), state["name"] + "-cdn"):
+            raise SetupError("Original Pull Zone not found; countries-only will not create zones")
+        storage = storage_zone(api, state)
+        pull = pull_zone(api, state, storage["id"])
+        sync_all_countries(api, state, storage, pull)
+        return 0
     if args.upload_only:
         if not (READY / "index.m3u").is_file() or not (READY / "adult.m3u").is_file():
             raise SetupError("No saved dist/iptv-ready playlist: first run without --upload-only")
@@ -370,6 +410,7 @@ def main():
         shutil.rmtree(DEST)
     DEST.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(READY, DEST)
+    sync_all_countries(api, state, storage, pull)
     base = "https://" + pull["hostname"] + "/iptv/"
     print("\nLampa M3U addresses:")
     for path in ("index.m3u", "adult.m3u", "categories/xxx.m3u",
