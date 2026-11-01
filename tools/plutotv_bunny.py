@@ -67,8 +67,12 @@ def extract(text: str, min_count: int, max_count: int) -> tuple[str, list[tuple[
             if not match or not match.group(1).strip():
                 raise ValueError("invalid_channel_title")
             groups = GROUP.findall(line)
-            if len(groups) != 1 or not groups[0].strip() or ";" in groups[0]:
+            if len(groups) != 1 or ";" in groups[0]:
                 raise ValueError("invalid_composite_channel_group")
+            if not groups[0].strip():
+                # Pluto DE sometimes leaves the category empty for seasonal shows;
+                # keep the channel under one usable group instead of rejecting it.
+                line = line.replace('group-title=""', 'group-title="General"', 1)
             logos = LOGO.findall(line)
             if len(logos) > 1 or any(not urlsplit(u).scheme == "https" for u in logos if u):
                 raise ValueError("invalid_logo")
@@ -261,6 +265,9 @@ def test():
             assert text.startswith("#EXTM3U")
             assert all(";" not in GROUP.search(meta).group(1) for meta, _ in m3u.parse_m3u(text))
         # Rejection must fail closed.
+        empty_group = de_src.replace('group-title="News"', 'group-title=""', 1)
+        _, rows = extract(empty_group, 100, 400)
+        assert any('group-title="General"' in meta for meta, _ in rows)
         for edited in (
             all_src.replace("https://jmp2.uk/", "https://example.com/", 1),
             all_src.replace("https://jmp2.uk/", "http://jmp2.uk/", 1),
