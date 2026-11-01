@@ -26,6 +26,15 @@ Run inside the existing $HOME/iptv-bunny directory so the local nonsecret state 
       python3 adulttest.py
     )
 
+If uploading to Bunny fails after the tests succeeded, **do not rescan**
+all sources and channels. Resume the saved local playlist with:
+
+    cd "$HOME/iptv-bunny"
+    python3 adulttest.py --publish-only
+
+This mode verifies the local M3U entry count against the saved report,
+reuses existing Storage/Pull zones, and only retries the upload.
+
 For local test only, replace the last line with:
 
     python3 adulttest.py --dry-run
