@@ -281,6 +281,53 @@ def collect() -> tuple[list[Candidate], dict, list[dict]]:
     return list(seen.values()), dict(skipped), results
 
 
+
+def official_logo_fallback(candidates: list[Candidate]) -> int:
+    """Enrich tvg-id matches from the upstream logo registry, no guesswork.
+
+    This is best-effort: a missing/unavailable logo never affects the stream
+    eligibility or creates a fictitious image reference.
+    """
+    needed = {c.tvg_id for c in candidates if c.tvg_id and not c.logo}
+    if not needed:
+        return 0
+    request = Request("https://iptv-org.github.io/api/logos.json",
+                      headers={"User-Agent": "Lampa-adulttest-research/1.0"})
+    try:
+        with urlopen(request, timeout=35) as response:
+            raw = response.read(10_000_001)
+        if len(raw) > 10_000_000:
+            return 0
+        data = json.loads(raw.decode("utf-8"))
+        if not isinstance(data, list):
+            return 0
+    except (HTTPError, URLError, OSError, TimeoutError, ValueError, UnicodeError):
+        return 0
+    lookup: dict[str, tuple[int, str]] = {}
+    for record in data:
+        if not isinstance(record, dict) or record.get("channel") not in needed:
+            continue
+        url = record.get("url")
+        if not isinstance(url, str):
+            continue
+        clean = safe_logo(url)
+        if not clean:
+            continue
+        # Prefer in-use, stable raster images for legacy Samsung.
+        fmt = str(record.get("format") or "").upper()
+        score = (2 if record.get("in_use") else 0) + (1 if fmt in ("PNG", "JPEG", "WEBP") else 0)
+        key = record["channel"]
+        if key not in lookup or score > lookup[key][0]:
+            lookup[key] = (score, clean)
+    total = 0
+    for candidate in candidates:
+        match = lookup.get(candidate.tvg_id)
+        if not candidate.logo and match:
+            candidate.logo = match[1]
+            total += 1
+    return total
+
+
 def write_m3u(items: list[Candidate], target: Path):
     lines = ["#EXTM3U"]
     for item in items:
@@ -324,6 +371,8 @@ def run(args) -> int:
     if not candidates:
         raise RuntimeError("No safe stream candidates found; no upload")
     candidates.sort(key=lambda c: (c.category, c.name.lower(), c.url))
+    enriched_logos = official_logo_fallback(candidates)
+    print("IPTV-org official logo fallback:", enriched_logos)
     write_m3u(candidates, root / "adulttest-candidates.m3u")
     print(f"UNTESTED CANDIDATES: {len(candidates)}; saved locally (not uploaded)")
     good: list[Candidate] = []
@@ -360,6 +409,8 @@ def run(args) -> int:
         writer.writerows(result_rows)
     report = {
         "source_count_research": len(SOURCES),
+        "official_logos_enriched": enriched_logos,
+        "candidates_with_logos": sum(bool(c.logo) for c in candidates),
         "sources": sources,
         "candidate_urls_deduplicated": len(candidates),
         "open_anonymous_hls": len(good),
