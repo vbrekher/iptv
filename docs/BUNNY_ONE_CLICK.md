@@ -10,7 +10,7 @@ files only**. It does not host video or bypass subscriptions.
 
 ```bash
 mkdir -p "$HOME/iptv-bunny" && cd "$HOME/iptv-bunny"
-for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py sync_bunny_countries.py build_lampa_lite.py; do
+for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py sync_bunny_countries.py build_lampa_lite.py lampa_category_fix.py; do
   curl -fsSL --retry 3 \
     "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" \
     -o "$file" || exit 1
@@ -59,6 +59,68 @@ https://<your-pull-zone>.b-cdn.net/iptv/countries/ua.m3u
 Copy any M3U URL into Lampa's playlist importer. If no adult candidate passes,
 `adult.m3u` contains no channel entries and the public index is still published
 without the unverified adult streams.
+
+## Correct Lampa categories (composite group-title defect)
+
+**Why Lampa showed hundreds of one-channel categories:** The original source M3U
+sometimes uses `group-title="Documentary;Education;Outdoor;Relax"` or
+`group-title="Family;Series"`. Some Lampa plugins treat each entire string
+as a distinct category instead of splitting it, multiplying category names.
+Our earlier full `index.category.m3u` was merely a copy of the raw index,
+so these composite group strings were incorrectly passed through.
+
+The fixed generator uses a fixed IPTV category vocabulary and assigns exactly
+**one canonical group** to each channel: e.g. Documentary and Series.
+Rare groups are folded into General. XXX stays in its own group.
+No URLs or channels are removed from the full catalog.
+
+On an already installed Bunny, run exactly this (same Mac directory and zones):
+
+```bash
+(
+  set -e
+  cd "$HOME/iptv-bunny"
+  for file in auto_bunny_setup.py lampa_category_fix.py; do
+    curl -fsSL --retry 3 \
+      "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" \
+      -o "$file"
+  done
+  python3 auto_bunny_setup.py --fix-categories-only
+)
+```
+
+This reuses the **same Storage Zone and Pull Zone**, takes only the locally saved
+`dist/iptv-ready/index.m3u` and `adult.m3u`, and uploads just the repaired
+full indexes and 240/600-item variants. It never rechecks 72 streams,
+does not download countries again, and does not rewrite `adult.m3u` or
+`countries/*.m3u`. The terminal prompts once for Bunny Account API Key.
+
+After upload, **delete the old playlist entry in Lampa** and add the new,
+cache-safe URL:
+
+```text
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u
+```
+
+If your television handles that, try:
+
+```text
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean.m3u
+```
+
+All categories in one full file:
+
+```text
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u
+```
+
+**CUB warning:** `[M3U Function (Failed upload to CUB)]` refers to a CUB
+cloud upload attempt by a Lampa plugin, not a Bunny Storage API PUT. This
+script fixes M3U structure, not the user's CUB login, cloud permissions,
+plugin, or CUB server availability. For isolation, try adding the new small
+M3U as a direct URL in the IPTV player without choosing any CUB upload/sync
+action. If upload-to-CUB remains mandatory in the installed plugin, diagnose
+that specific plugin separately; category repair alone cannot guarantee it.
 
 ## Lampa on Samsung Tizen: fast, category-balanced playlists
 

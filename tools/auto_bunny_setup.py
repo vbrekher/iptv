@@ -26,6 +26,7 @@ import personal_bunny_playlists as catalog
 import free_hls_filter as verifier
 import sync_bunny_countries as country_sync
 import build_lampa_lite as lite
+import lampa_category_fix as category_fix
 
 API = "https://api.bunny.net"
 STATE = Path(".bunny-iptv-state.json")
@@ -254,28 +255,70 @@ def sync_all_countries(api, state, storage, pull):
         return result
 
 
-def publish_lampa_lite(api, state, storage, pull):
-    """Upload only lightweight M3U profiles; do not touch full M3U, categories or adult."""
-    local = READY if (READY / "index.m3u").is_file() else DEST
+def write_fixed_playlists(local, output):
+    """Use only saved local M3U, never rescan streams or create a new zone."""
     if not (local / "index.m3u").is_file() or not (local / "adult.m3u").is_file():
         raise SetupError("Missing saved index.m3u/adult.m3u in dist/iptv-ready or dist/iptv-published")
+    return category_fix.build(local, output)
+
+
+def copy_fixed_playlists(staged, destination):
+    destination.mkdir(parents=True, exist_ok=True)
+    (destination / "catalog").mkdir(exist_ok=True)
+    for name in (
+        "index.m3u", "index.category.m3u", "index.clean.m3u",
+        "lampa-lite.m3u", "lampa.m3u",
+        "lampa-clean-lite.m3u", "lampa-clean.m3u",
+    ):
+        shutil.copy2(staged / name, destination / name)
+    for name in ("lampa-lite-report.json", "category-repair-report.json"):
+        shutil.copy2(staged / "catalog" / name, destination / "catalog" / name)
+
+
+def publish_category_fix(api, state, storage, pull):
+    """Publish clean categories and fresh cache-safe URLs; preserve adult/countries."""
+    local = READY if (READY / "index.m3u").is_file() else DEST
+    with tempfile.TemporaryDirectory(prefix="lampa-category-repair-") as dirname:
+        staged = Path(dirname) / "upload"
+        report = write_fixed_playlists(local, staged)
+        publish(api, state, storage, pull, staged)
+        for destination in (READY, DEST):
+            copy_fixed_playlists(staged, destination)
+    base = "https://" + pull["hostname"] + "/iptv/"
+    print("\nLAMPA_CATEGORY_REPAIR_PUBLISHED")
+    print("Full clean catalog:", base + "index.clean.m3u")
+    print("Samsung recommended:", base + "lampa-clean-lite.m3u")
+    print("Samsung expanded:", base + "lampa-clean.m3u")
+    print("Groups:", len(report["group_counts"]), "original stream count retained:", report["repaired_entries"])
+    print("Existing adult.m3u, country M3Us and per-category files were NOT overwritten.")
+    print("Remove the OLD playlist entry from Lampa and import the NEW clean URL.")
+    return report
+
+
+def publish_lampa_lite(api, state, storage, pull):
+    """Only publish small profiles (and fresh URLs), preserving full index."""
+    local = READY if (READY / "index.m3u").is_file() else DEST
     with tempfile.TemporaryDirectory(prefix="lampa-iptv-lite-") as dirname:
+        staged = Path(dirname) / "all"
+        result = write_fixed_playlists(local, staged)
         output = Path(dirname) / "upload"
-        result = lite.build(local, output)
+        output.mkdir()
+        (output / "catalog").mkdir()
+        for name in ("lampa-lite.m3u", "lampa.m3u", "lampa-clean-lite.m3u", "lampa-clean.m3u"):
+            shutil.copy2(staged / name, output / name)
+        shutil.copy2(staged / "catalog/lampa-lite-report.json", output / "catalog/lampa-lite-report.json")
         publish(api, state, storage, pull, output)
         for dest in (READY, DEST):
             dest.mkdir(parents=True, exist_ok=True)
             (dest / "catalog").mkdir(exist_ok=True)
-            for name, _ in lite.PROFILES:
+            for name in ("lampa-lite.m3u", "lampa.m3u", "lampa-clean-lite.m3u", "lampa-clean.m3u"):
                 shutil.copy2(output / name, dest / name)
             shutil.copy2(output / "catalog/lampa-lite-report.json", dest / "catalog/lampa-lite-report.json")
         base = "https://" + pull["hostname"] + "/iptv/"
         print("\nLIGHTWEIGHT_LAMPA_PLAYLISTS_PUBLISHED")
-        for name, _ in lite.PROFILES:
-            print(base + name, "-", result["playlists"][name]["entries"], "entries,",
-                  result["playlists"][name]["bytes"], "bytes")
+        for name in ("lampa-clean-lite.m3u", "lampa-clean.m3u"):
+            print(base + name, "-", (output / name).stat().st_size, "bytes")
         print("Full index.m3u / adult.m3u unchanged.")
-        print("Load lampa-lite.m3u first on Samsung; public stream playback is not guaranteed.")
         return result
 
 
@@ -370,6 +413,7 @@ def self_test():
         catalog.publish, time.sleep = saved_publish, saved_sleep
     country_sync.self_test()
     lite.self_test()
+    category_fix.test()
     print("ONE_CLICK_BUNNY_SELF_TEST_PASS")
 
 
@@ -378,6 +422,8 @@ def main():
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--without-community", action="store_true")
     parser.add_argument("--upload-only", action="store_true", help="Resume upload from dist/iptv-ready; no stream probing")
+    parser.add_argument("--fix-categories-only", action="store_true",
+                        help="Repair semicolon groups in saved M3Us and publish to existing Bunny")
     parser.add_argument("--lite-only", action="store_true",
                         help="Build/publish small Lampa playlists using existing local M3Us; no rescans")
     parser.add_argument("--countries-only", action="store_true",
@@ -386,10 +432,10 @@ def main():
     if args.self_test:
         self_test()
         return 0
-    if sum((args.countries_only, args.upload_only, args.lite_only)) > 1:
+    if sum((args.countries_only, args.upload_only, args.lite_only, args.fix_categories_only)) > 1:
         parser.error("--countries-only, --upload-only and --lite-only are mutually exclusive")
     print("Lampa IPTV Bunny setup — only M3U files; Bunny resources incur charges.")
-    if (args.countries_only or args.lite_only) and not STATE.exists():
+    if (args.countries_only or args.lite_only or args.fix_categories_only) and not STATE.exists():
         raise SetupError("Missing existing .bunny-iptv-state.json; run from the original setup directory")
     api_key = getpass.getpass("Bunny Account API Key (hidden): ")
     api = BunnyAPI(api_key)
@@ -397,8 +443,8 @@ def main():
     list_zones(api, "storagezone")  # validate account access before creating
     state = load_state(STATE)
     print("Using resource group:", state["name"])
-    if args.countries_only or args.lite_only:
-        # Neither mode ever creates billable zones.
+    if args.countries_only or args.lite_only or args.fix_categories_only:
+        # All maintenance modes must reuse existing billable zones.
         if not named(list_zones(api, "storagezone"), state["name"] + "-storage"):
             raise SetupError("Original Storage Zone not found; lightweight and countries-only modes will not create zones")
         if not named(list_zones(api, "pullzone"), state["name"] + "-cdn"):
@@ -407,6 +453,8 @@ def main():
         pull = pull_zone(api, state, storage["id"])
         if args.countries_only:
             sync_all_countries(api, state, storage, pull)
+        elif args.fix_categories_only:
+            publish_category_fix(api, state, storage, pull)
         else:
             publish_lampa_lite(api, state, storage, pull)
         return 0
@@ -428,6 +476,11 @@ def main():
             if outcome not in (0, 2):
                 raise SetupError("Stream verification failed")
             adult_count, combined_count = prepare_public_candidates(candidates, checked, out)
+            # Fix the large public index before any full fresh installation.
+            cleaned = root / "cleaned"
+            write_fixed_playlists(out, cleaned)
+            for name in ("index.m3u", "index.category.m3u", "index.clean.m3u"):
+                shutil.copy2(cleaned / name, out / name)
             print("Adult candidates responding anonymously:", adult_count)
             print("Public catalog + verified adult candidates:", combined_count)
             if READY.exists():

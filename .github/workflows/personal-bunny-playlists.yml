@@ -8,6 +8,7 @@ on:
       - 'tools/auto_bunny_setup.py'
       - 'tools/sync_bunny_countries.py'
       - 'tools/build_lampa_lite.py'
+      - 'tools/lampa_category_fix.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -43,7 +44,8 @@ jobs:
         run: python3 -m py_compile tools/sync_bunny_countries.py
       - name: Offline country mirror completeness, group index and preservation
         run: python3 tools/sync_bunny_countries.py
-      - name: Download every official country playlist (no Bunny upload)
+      - name: Download every official country playlist (advisory third-party reliability)
+        continue-on-error: true
         run: |
           python3 - <<'PY'
           import os, sys
@@ -82,4 +84,43 @@ jobs:
               assert "News" in stats["categories"] or "news" in stats["categories"]
               assert stats["bytes"] < 750_000
               print("TIZEN_LITE_PROFILE_PASS", name, stats["entries"], stats["bytes"])
+          PY
+      - name: Compile canonical group normalizer
+        run: python3 -m py_compile tools/lampa_category_fix.py
+      - name: Test composite group splitting and rarity coalescing
+        run: python3 tools/lampa_category_fix.py
+      - name: Repair groups against official 11k-channel public M3U (no Bunny upload)
+        run: |
+          python3 - <<'PY'
+          import collections
+          import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          import lampa_category_fix as fix
+          import personal_bunny_playlists as m3u
+
+          source = Path(os.environ["RUNNER_TEMP"]) / "iptv-complete"
+          target = Path(os.environ["RUNNER_TEMP"]) / "iptv-category-fix"
+          original = (source / "index.m3u").read_bytes()
+          report = fix.build(source, target)
+          assert (source / "index.m3u").read_bytes() == original
+          assert report["source_entries"] > 11000
+          full = m3u.parse_m3u((target / "index.category.m3u").read_text())
+          source_entries = m3u.parse_m3u(original.decode("utf-8"))
+          assert len(full) == len(source_entries)
+          assert [u for _, u in full] == [u for _, u in source_entries]
+          counts = collections.Counter(m3u.group_names(m)[0] for m, _ in full)
+          assert len(counts) <= 30, counts
+          assert all(n >= 10 or g == "XXX" for g, n in counts.items()), counts
+          assert all(len(m3u.group_names(m)) == 1 and ";" not in m3u.group_names(m)[0] for m, _ in full)
+          for name, limit in (("lampa-clean-lite.m3u", 240), ("lampa-clean.m3u", 600)):
+              items = m3u.parse_m3u((target / name).read_text())
+              grouped = collections.Counter(m3u.group_names(m)[0] for m, _ in items)
+              assert len(items) <= limit
+              assert "XXX" in grouped
+              assert all(n >= 3 or g == "XXX" for g, n in grouped.items()), grouped
+              assert all(len(m3u.group_names(m)) == 1 and ";" not in m3u.group_names(m)[0] for m, _ in items)
+              print("REAL_LAMPA_GROUPS_PASS", name, len(items), len(grouped), (target / name).stat().st_size)
+          print("FULL_LAMPA_GROUPS_PASS", len(full), len(counts))
           PY
