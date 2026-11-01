@@ -10,6 +10,7 @@ on:
       - 'tools/build_lampa_lite.py'
       - 'tools/lampa_category_fix.py'
       - 'tools/adulttest.py'
+      - 'tools/plutotv_bunny.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -158,4 +159,28 @@ jobs:
           assert all(adulttest.safe_stream_url(candidate.url)[0] for candidate in results)
           assert all(not adulttest.CAM_WORDS.search(candidate.name) for candidate in results)
           print('ADULTTEST_SOURCE_DISCOVERY_PASS')
+          PY
+
+      - name: Compile PlutoTV standalone installer
+        run: python3 -m py_compile tools/plutotv_bunny.py
+      - name: Offline PlutoTV playlist security and grouping tests
+        run: python3 tools/plutotv_bunny.py --self-test
+      - name: Build PlutoTV playlists from current upstream (no Bunny writes)
+        run: |
+          python3 tools/plutotv_bunny.py --dry-run --output "$RUNNER_TEMP/plutotv-source-audit"
+          python3 - <<'PY'
+          import os,sys,json,pathlib
+          root=pathlib.Path(os.environ["RUNNER_TEMP"])/"plutotv-source-audit"
+          report=json.loads((root/"report.json").read_text())
+          assert report["upstream_all_entries"] >= 500
+          assert report["upstream_germany_entries"] >= 100
+          assert 1 <= report["erotic_fast_channels_germany"] <= 30
+          assert report["files"]["plutotv-lite.m3u"]["entries"] <= 240
+          for name, info in report["files"].items():
+              assert (root/name).read_text().startswith("#EXTM3U")
+              assert info["entries"] > 0
+              assert info["bytes"] <= 2_000_000
+          print("PLUTOTV_SOURCE_BUILD_PASS", report["upstream_all_entries"],
+                "GERMANY", report["upstream_germany_entries"],
+                "EROTIC_FAST", report["erotic_fast_channels_germany"])
           PY
