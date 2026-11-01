@@ -25,6 +25,7 @@ from urllib.request import Request, urlopen
 import personal_bunny_playlists as catalog
 import free_hls_filter as verifier
 import sync_bunny_countries as country_sync
+import build_lampa_lite as lite
 
 API = "https://api.bunny.net"
 STATE = Path(".bunny-iptv-state.json")
@@ -253,6 +254,31 @@ def sync_all_countries(api, state, storage, pull):
         return result
 
 
+def publish_lampa_lite(api, state, storage, pull):
+    """Upload only lightweight M3U profiles; do not touch full M3U, categories or adult."""
+    local = READY if (READY / "index.m3u").is_file() else DEST
+    if not (local / "index.m3u").is_file() or not (local / "adult.m3u").is_file():
+        raise SetupError("Missing saved index.m3u/adult.m3u in dist/iptv-ready or dist/iptv-published")
+    with tempfile.TemporaryDirectory(prefix="lampa-iptv-lite-") as dirname:
+        output = Path(dirname) / "upload"
+        result = lite.build(local, output)
+        publish(api, state, storage, pull, output)
+        for dest in (READY, DEST):
+            dest.mkdir(parents=True, exist_ok=True)
+            (dest / "catalog").mkdir(exist_ok=True)
+            for name, _ in lite.PROFILES:
+                shutil.copy2(output / name, dest / name)
+            shutil.copy2(output / "catalog/lampa-lite-report.json", dest / "catalog/lampa-lite-report.json")
+        base = "https://" + pull["hostname"] + "/iptv/"
+        print("\nLIGHTWEIGHT_LAMPA_PLAYLISTS_PUBLISHED")
+        for name, _ in lite.PROFILES:
+            print(base + name, "-", result["playlists"][name]["entries"], "entries,",
+                  result["playlists"][name]["bytes"], "bytes")
+        print("Full index.m3u / adult.m3u unchanged.")
+        print("Load lampa-lite.m3u first on Samsung; public stream playback is not guaranteed.")
+        return result
+
+
 def verify_public_cdn(hostname):
     for attempt in range(4):
         try:
@@ -343,6 +369,7 @@ def self_test():
     finally:
         catalog.publish, time.sleep = saved_publish, saved_sleep
     country_sync.self_test()
+    lite.self_test()
     print("ONE_CLICK_BUNNY_SELF_TEST_PASS")
 
 
@@ -351,16 +378,18 @@ def main():
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--without-community", action="store_true")
     parser.add_argument("--upload-only", action="store_true", help="Resume upload from dist/iptv-ready; no stream probing")
+    parser.add_argument("--lite-only", action="store_true",
+                        help="Build/publish small Lampa playlists using existing local M3Us; no rescans")
     parser.add_argument("--countries-only", action="store_true",
                         help="Only upload all official country lists to existing Bunny zones")
     args = parser.parse_args()
     if args.self_test:
         self_test()
         return 0
-    if args.countries_only and args.upload_only:
-        parser.error("--countries-only and --upload-only are mutually exclusive")
+    if sum((args.countries_only, args.upload_only, args.lite_only)) > 1:
+        parser.error("--countries-only, --upload-only and --lite-only are mutually exclusive")
     print("Lampa IPTV Bunny setup — only M3U files; Bunny resources incur charges.")
-    if args.countries_only and not STATE.exists():
+    if (args.countries_only or args.lite_only) and not STATE.exists():
         raise SetupError("Missing existing .bunny-iptv-state.json; run from the original setup directory")
     api_key = getpass.getpass("Bunny Account API Key (hidden): ")
     api = BunnyAPI(api_key)
@@ -368,15 +397,18 @@ def main():
     list_zones(api, "storagezone")  # validate account access before creating
     state = load_state(STATE)
     print("Using resource group:", state["name"])
-    if args.countries_only:
-        # Never create billable zones in countries-only mode.
+    if args.countries_only or args.lite_only:
+        # Neither mode ever creates billable zones.
         if not named(list_zones(api, "storagezone"), state["name"] + "-storage"):
-            raise SetupError("Original Storage Zone not found; countries-only will not create zones")
+            raise SetupError("Original Storage Zone not found; lightweight and countries-only modes will not create zones")
         if not named(list_zones(api, "pullzone"), state["name"] + "-cdn"):
-            raise SetupError("Original Pull Zone not found; countries-only will not create zones")
+            raise SetupError("Original Pull Zone not found; lightweight and countries-only modes will not create zones")
         storage = storage_zone(api, state)
         pull = pull_zone(api, state, storage["id"])
-        sync_all_countries(api, state, storage, pull)
+        if args.countries_only:
+            sync_all_countries(api, state, storage, pull)
+        else:
+            publish_lampa_lite(api, state, storage, pull)
         return 0
     if args.upload_only:
         if not (READY / "index.m3u").is_file() or not (READY / "adult.m3u").is_file():
@@ -411,6 +443,7 @@ def main():
     DEST.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(READY, DEST)
     sync_all_countries(api, state, storage, pull)
+    publish_lampa_lite(api, state, storage, pull)
     base = "https://" + pull["hostname"] + "/iptv/"
     print("\nLampa M3U addresses:")
     for path in ("index.m3u", "adult.m3u", "categories/xxx.m3u",
