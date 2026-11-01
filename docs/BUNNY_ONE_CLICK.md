@@ -60,6 +60,46 @@ Copy any M3U URL into Lampa's playlist importer. If no adult candidate passes,
 `adult.m3u` contains no channel entries and the public index is still published
 without the unverified adult streams.
 
+## Recover from Bunny Storage 401 without creating duplicate zones
+
+A `401 Unauthorized` at **Uploading ...** means the Bunny Storage API did not
+accept the Storage Zone write password or primary-region endpoint. It does not
+mean the account key is invalid, nor that the IPTV probe failed.
+
+The installer now reads the primary region from Bunny's management API, refreshes
+the Storage Zone write password, and retries HTTP 401/403 with bounded delays.
+It stores generated M3U text locally **before** uploading so subsequent attempts
+do not require another live stream scan.
+
+Run from the **same** `$HOME/iptv-bunny` directory (keep
+`.bunny-iptv-state.json`):
+
+```bash
+cd "$HOME/iptv-bunny"
+curl -fsSL --retry 3 -o auto_bunny_setup.py \
+  https://raw.githubusercontent.com/vbrekher/iptv/master/tools/auto_bunny_setup.py
+python3 auto_bunny_setup.py
+```
+
+On any **future** upload failure, the freshly generated files remain in
+`dist/iptv-ready/`. You may resume the upload without rescanning:
+
+```bash
+python3 auto_bunny_setup.py --upload-only
+```
+
+**Important:** The older installer discarded generated files in a temporary
+directory after failure, so the first upgraded run must recheck the 72 stream
+candidates once. The existing Storage Zone and Pull Zone will be reused using
+the saved resource-group name.
+
+If the upload still fails after six attempts, the error gives the exact Storage
+Zone name, primary region and endpoint, without printing any secret. Confirm
+the **writable** Storage Zone password in Bunny > Storage > FTP & API Access;
+do not use the account key or ReadOnlyPassword as the Storage API access key.
+Do **not** delete the zones, recreate resources or rotate credentials as a
+first troubleshooting step.
+
 ## Security and limitations
 
 - Only **anonymous technical accessibility** is checked, not redistribution
