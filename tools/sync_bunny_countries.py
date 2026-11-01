@@ -90,7 +90,8 @@ def create_country_mirror(destination: Path, workers: int = 8,
         "streams_tested": False,
         "note": "Public country playlists are not individually live-checked; adult playlist remains separate.",
     }
-    (destination / "country-sync-report.json").write_text(
+    (destination / "catalog").mkdir(exist_ok=True)
+    (destination / "catalog/country-sync-report.json").write_text(
         json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     return summary
@@ -103,7 +104,7 @@ def merge_local_mirror(source: Path, *destinations: Path) -> None:
         shutil.copytree(source / "countries", dest / "countries", dirs_exist_ok=True)
         shutil.copy2(source / "index.country.m3u", dest / "index.country.m3u")
         (dest / "catalog").mkdir(exist_ok=True)
-        shutil.copy2(source / "country-sync-report.json",
+        shutil.copy2(source / "catalog/country-sync-report.json",
                      dest / "catalog/country-sync-report.json")
 
 
