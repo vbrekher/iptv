@@ -6,6 +6,7 @@ on:
       - 'tools/personal_bunny_playlists.py'
       - 'tools/free_hls_filter.py'
       - 'tools/auto_bunny_setup.py'
+      - 'tools/sync_bunny_countries.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -37,3 +38,7 @@ jobs:
         run: python3 -m py_compile tools/auto_bunny_setup.py
       - name: One-click installer mock provisioning and playlist safety tests
         run: python3 tools/auto_bunny_setup.py --self-test
+      - name: Compile country mirror generator
+        run: python3 -m py_compile tools/sync_bunny_countries.py
+      - name: Offline country mirror completeness, group index and preservation
+        run: python3 tools/sync_bunny_countries.py
