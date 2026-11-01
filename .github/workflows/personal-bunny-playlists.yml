@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'tools/personal_bunny_playlists.py'
+      - 'tools/free_hls_filter.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -27,3 +28,7 @@ jobs:
         run: |
           python3 tools/personal_bunny_playlists.py --output "$RUNNER_TEMP/iptv-complete" --country ua
           python3 -c 'import json,os,pathlib; p=pathlib.Path(os.environ["RUNNER_TEMP"])/"iptv-complete"; r=json.loads((p/"catalog"/"report.json").read_text()); assert r["public_entries"] > 1000; assert r["combined_entries"] > r["public_entries"]; assert (p/"categories"/"xxx.m3u").exists(); assert (p/"countries"/"ua.m3u").exists(); assert (p/"index.m3u").stat().st_size > 100000; print("FULL_M3U_BUILD_PASS")'
+      - name: Compile free-only checker
+        run: python3 -m py_compile tools/free_hls_filter.py
+      - name: Offline free-only checker tests
+        run: python3 tools/free_hls_filter.py --self-test
