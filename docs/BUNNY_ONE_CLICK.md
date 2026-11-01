@@ -10,7 +10,7 @@ files only**. It does not host video or bypass subscriptions.
 
 ```bash
 mkdir -p "$HOME/iptv-bunny" && cd "$HOME/iptv-bunny"
-for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py sync_bunny_countries.py; do
+for file in personal_bunny_playlists.py free_hls_filter.py auto_bunny_setup.py sync_bunny_countries.py build_lampa_lite.py; do
   curl -fsSL --retry 3 \
     "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" \
     -o "$file" || exit 1
@@ -59,6 +59,56 @@ https://<your-pull-zone>.b-cdn.net/iptv/countries/ua.m3u
 Copy any M3U URL into Lampa's playlist importer. If no adult candidate passes,
 `adult.m3u` contains no channel entries and the public index is still published
 without the unverified adult streams.
+
+## Lampa on Samsung Tizen: fast, category-balanced playlists
+
+The full `index.m3u` and `index.category.m3u` contain many thousands of
+entries. On Samsung's Tizen browser runtime the IPTV plugin may hang while
+processing these large M3U files. The one-click installer can now upload two
+additional small playlists without changing your full catalog:
+
+- `/iptv/lampa-lite.m3u` — **up to 240 entries**, including the previously
+  tested adult streams plus a balanced sample from every available public
+  category. **Try this first** on Samsung.
+- `/iptv/lampa.m3u` — **up to 600 entries**, same group names, more choices.
+
+Both use `group-title` tags, including `XXX`. They are static M3U files,
+not proxies or locally hosted video; the public part is **not live-tested**.
+The original `index.m3u`, `index.category.m3u`, `adult.m3u`, country and
+category playlists remain untouched.
+
+### Publish only the lightweight files to your already-provisioned Bunny
+
+```bash
+(
+  set -e
+  cd "$HOME/iptv-bunny"
+  for file in auto_bunny_setup.py build_lampa_lite.py; do
+    curl -fsSL --retry 3 \
+      "https://raw.githubusercontent.com/vbrekher/iptv/master/tools/$file" \
+      -o "$file"
+  done
+  python3 auto_bunny_setup.py --lite-only
+)
+```
+
+Enter the **Bunny Account API Key** only when prompted (hidden input).
+This mode reuses existing resources and local M3U files; it does **not**
+create zones, re-scan the 72 adult candidates, re-download 188 country files,
+or re-upload the 11,420-channel index.
+
+After successful upload:
+
+```text
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-lite.m3u
+https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa.m3u
+```
+
+If the 240-entry playlist also hangs, test `/iptv/adult.m3u` (about 46
+entries). If even the small file fails, investigate TV connectivity, CDN
+response, CORS and IPTV plugin errors rather than assuming size is the only
+cause. Loading an M3U successfully does not mean individual streams will
+play on Samsung. No need to reinstall Lampa or wipe settings as a first step.
 
 ## Country playlists: all countries on your existing Bunny
 

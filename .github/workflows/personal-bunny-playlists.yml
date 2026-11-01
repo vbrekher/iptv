@@ -7,6 +7,7 @@ on:
       - 'tools/free_hls_filter.py'
       - 'tools/auto_bunny_setup.py'
       - 'tools/sync_bunny_countries.py'
+      - 'tools/build_lampa_lite.py'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -56,4 +57,29 @@ jobs:
           assert (output / "countries" / "us.m3u").read_bytes().startswith(b"#EXTM3U")
           assert (output / "index.country.m3u").read_bytes().startswith(b"#EXTM3U")
           print("OFFICIAL_COUNTRIES_MIRROR_BUILD_PASS", report["country_playlists"])
+          PY
+      - name: Compile Tizen lightweight playlist builder
+        run: python3 -m py_compile tools/build_lampa_lite.py
+      - name: Offline Tizen lightweight playlist safety and category balance
+        run: python3 tools/build_lampa_lite.py
+      - name: Real upstream public catalog to lightweight M3U profiles
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          import build_lampa_lite as lite
+          public = Path(os.environ["RUNNER_TEMP"]) / "iptv-complete"
+          output = Path(os.environ["RUNNER_TEMP"]) / "iptv-tizen"
+          before = (public / "index.m3u").read_bytes()
+          result = lite.build(public, output)
+          assert (public / "index.m3u").read_bytes() == before
+          for name, cap in lite.PROFILES:
+              stats = result["playlists"][name]
+              assert 50 <= stats["entries"] <= cap
+              assert stats["adult_entries"] > 0
+              assert "XXX" in stats["categories"]
+              assert "News" in stats["categories"] or "news" in stats["categories"]
+              assert stats["bytes"] < 750_000
+              print("TIZEN_LITE_PROFILE_PASS", name, stats["entries"], stats["bytes"])
           PY
