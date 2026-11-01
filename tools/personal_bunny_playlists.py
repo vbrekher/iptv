@@ -27,6 +27,7 @@ HISTORIC_REF = "a1f14e961505010b0ef13bcd2a535f658ed51ac1"
 HISTORIC_BASE = "https://raw.githubusercontent.com/iptv-org/iptv/" + HISTORIC_REF
 OLD_ADULT = HISTORIC_BASE + "/categories/xxx.m3u"
 OLD_INDEX = HISTORIC_BASE + "/index.nsfw.m3u"
+COMMUNITY_ARCHIVE = "https://raw.githubusercontent.com/hujingguang/ChinaIPTV/557f01be7aa2e04271be26e18b78b695e31c04af/xxx.m3u8"
 BLOCKLIST = "https://raw.githubusercontent.com/iptv-org/database/master/data/blocklist.csv"
 PUBLIC_INDEX = "https://iptv-org.github.io/iptv/index.m3u"
 PUBLIC_COUNTRY = "https://iptv-org.github.io/iptv/countries/{code}.m3u"
@@ -135,7 +136,7 @@ def adult_group(channel: str) -> str:
     return "Other Adult"
 
 
-def prepare(output: Path, include_public: bool, country: str) -> dict:
+def prepare(output: Path, include_public: bool, country: str, include_community: bool = False) -> dict:
     print("Reading current blocklist...")
     reasons = read_blocklist(fetch_text(BLOCKLIST))
     nsfw_ids = {key for key, reason in reasons.items() if reason == "nsfw"}
@@ -146,7 +147,15 @@ def prepare(output: Path, include_public: bool, country: str) -> dict:
         item for item in parse_m3u(fetch_text(OLD_INDEX))
         if channel_id(item[0]) in nsfw_ids and reasons.get(channel_id(item[0])) != "dmca"
     ]
-    adult_raw = unique_entries(category_archive + historical)
+    historic_raw = unique_entries(category_archive + historical)
+    community = []
+    if include_community:
+        print("Reading opt-in, unverified community XXX candidate archive...")
+        community = [
+            item for item in parse_m3u(fetch_text(COMMUNITY_ARCHIVE))
+            if channel_id(item[0]) in nsfw_ids and reasons.get(channel_id(item[0])) != "dmca"
+        ]
+    adult_raw = unique_entries(historic_raw + community)
     if not adult_raw:
         raise RuntimeError("No historic adult URLs found; refusing to generate empty playlist")
 
@@ -211,7 +220,12 @@ def prepare(output: Path, include_public: bool, country: str) -> dict:
         "nsfw_blocklist_channel_ids": len(nsfw_ids),
         "nsfw_ids_with_historical_url": sum(1 for key in nsfw_ids if counts[key]),
         "nsfw_ids_without_historical_url": sum(1 for key in nsfw_ids if not counts[key]),
-        "historical_adult_entries": len(adult),
+        "historical_adult_entries": len(historic_raw),
+        "community_archive_enabled": include_community,
+        "community_archive_entries": len(community),
+        "additional_candidate_entries": len(adult) - len(historic_raw),
+        "candidate_adult_entries_total": len(adult),
+        "candidate_nsfw_ids_with_urls": len({channel_id(meta) for meta, _ in adult_raw if channel_id(meta) in nsfw_ids}),
         "public_entries": len(public),
         "combined_entries": len(combined),
         "category_playlists": len(categories) + len(subgroups) + 1,
@@ -303,6 +317,7 @@ def main() -> int:
     parser.add_argument("--country", default="ua", help="Two-letter country playlist mirror")
     parser.add_argument("--no-public", action="store_true", help="Adult-only index, no public index")
     parser.add_argument("--publish", action="store_true", help="Also upload to connected Bunny Storage")
+    parser.add_argument("--include-community", action="store_true", help="Opt in to extra UNVERIFIED community M3U URLs")
     parser.add_argument("--prefix", default="iptv", help="Bunny Storage folder (default: iptv)")
     parser.add_argument("--self-test", action="store_true", help="Run offline parser sanity tests")
     args = parser.parse_args()
@@ -315,7 +330,7 @@ def main() -> int:
         parser.error("--prefix must be a safe folder name, such as iptv")
     try:
         output = Path(args.output)
-        prepare(output, not args.no_public, args.country)
+        prepare(output, not args.no_public, args.country, args.include_community)
         if args.publish:
             publish(output, args.prefix)
     except (HTTPError, URLError, ValueError, RuntimeError, OSError, EOFError) as exc:
