@@ -154,9 +154,14 @@ def source_rows(text: str, kind: str) -> list[tuple[str, str, str, str, str]]:
 def relevant(name: str, tvg_id: str, group: str, source_name: str, nsfw_ids: set[str]) -> bool:
     if source_name == "Pluto TV Germany":
         return "Sinnliche Fantasien" in group
-    if source_name in ("IPTV 2024 NSFW", "ql-fa NL"):
+    if source_name in ("IPTV 2024 NSFW", "ql-fa NL", "SICOPOLY"):
         return tvg_id in nsfw_ids or bool(ADULT_WORDS.search(name + " " + group))
-    # Entire source is dedicated to adult content, except occasionally misc items.
+    if source_name == "karlovitch":
+        # Large file has hundreds of VOD episode/movie titles after its live
+        # channel section. Only source-labelled (18+) entries are candidates.
+        return "(18+)" in name
+    # Remaining inputs are dedicated adult M3U files, but cam names, unsafe
+    # URLs and VOD media are still rejected by independent rules.
     return True
 
 
@@ -421,6 +426,10 @@ def self_test():
     assert CAM_WORDS.search(rows[1][0])
     assert relevant("Brazzers TV", "Channel.us", "XXX", "NiceZoneCoder", {"Channel.us"})
     assert not relevant("News", "News.us", "News", "ql-fa NL", set())
+    assert not relevant("TeleMadrid", "", "", "SICOPOLY", set())
+    assert relevant("Dorcel", "", "", "SICOPOLY", set())
+    assert not relevant("M. Dorcel - Episode 1", "", "", "karlovitch", set())
+    assert relevant("Dorcel TV FHD (18+) NL", "", "", "karlovitch", set())
     assert relevant("Pluto TV Emmanuelle Filme", "", "Sinnliche Fantasien", "Pluto TV Germany", set())
     assert safe_stream_url("https://example.org/live.m3u8")[0]
     assert not safe_stream_url("https://example.org/live?token=secret")[0]
