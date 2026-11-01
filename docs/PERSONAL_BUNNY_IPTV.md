@@ -16,12 +16,13 @@ It is deliberately separate from the upstream GitHub Pages publishing workflow.
 ## Run on macOS (Python 3.9+)
 
 ```sh
-gh repo clone vbrekher/iptv
-cd iptv
-git switch feat/personal-adult-playlists-bunny
+mkdir -p "$HOME/iptv-bunny"
+cd "$HOME/iptv-bunny"
+curl -fsSLo personal_bunny_playlists.py \
+  https://raw.githubusercontent.com/vbrekher/iptv/master/tools/personal_bunny_playlists.py
 
-python3 tools/personal_bunny_playlists.py --self-test
-python3 tools/personal_bunny_playlists.py --output ./dist/iptv
+python3 personal_bunny_playlists.py --self-test
+python3 personal_bunny_playlists.py --output ./dist/iptv
 ```
 
 No npm, Node.js, Tizen SDK or database is needed.
@@ -58,7 +59,7 @@ In [bunny.net dashboard](https://dash.bunny.net/):
 From the project directory:
 
 ```sh
-python3 tools/personal_bunny_playlists.py --output ./dist/iptv --publish
+python3 personal_bunny_playlists.py --output ./dist/iptv --publish
 ```
 
 The script prompts for the Storage Zone name, region, Pull Zone hostname and password (hidden input). It then uploads each small playlist/catalog file using the Bunny Storage API. **Never paste your Storage password into GitHub files, terminal commands, or public logs.**
