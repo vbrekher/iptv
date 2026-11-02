@@ -122,6 +122,21 @@
 
 [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) · [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u)
 
+## ✅ Проверка всех 237 ссылок Bunny CDN
+
+Этот скрипт только читает ссылки: проверяет HTTP 200/206 и настоящий заголовок `#EXTM3U`. API-ключ Bunny не требуется, видеопотоки телеканалов не тестируются. Запусти на Mac:
+
+```bash
+mkdir -p "$HOME/iptv-bunny"
+cd "$HOME/iptv-bunny"
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/tools/check_public_cdn.py -o check_public_cdn.py
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/catalog/bunny-playlists.json -o bunny-playlists.json
+python3 check_public_cdn.py --self-test
+python3 check_public_cdn.py --catalog bunny-playlists.json --output public-cdn-report.json
+```
+
+Команда выводит `CDN_CHECKED`, `CDN_FAILED` и список неуспешных адресов. По **локальному JSON-отчёту** можно обновить статусы в каталоге и документации на трёх языках. Загрузка в Storage сама по себе не даёт права ставить ✅; проверка CDN не подтверждает воспроизведение телеканалов.
+
 ## 🛠 Что изменили относительно IPTV-org
 
 Создание Bunny-зон и исправление Storage 401, экспорт стран и категорий, правильная группировка каналов, облегчённые M3U для Lampa, Pluto FAST, публичный каталог со статусами и JSON-манифест. Авторство исходного IPTV-org сохранено.
