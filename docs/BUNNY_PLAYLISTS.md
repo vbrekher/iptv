@@ -29,7 +29,6 @@
 | Плейлист | Примечание | URL | Статус |
 |---|---|---|---|
 | Adult / XXX (исходный) | 46 ранее технически открытых HLS; много рекламных/платных заглушек | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ☑️ Загружен по логу |
-| Adulttest / 18+ (тестовый) | 141 анонимный HLS прошёл тест; качество не подтверждено | [adulttest.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adulttest.m3u) | ✅ CDN подтверждён отчётом |
 
 ## 🪐 Pluto TV · отдельные списки
 
