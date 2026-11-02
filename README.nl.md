@@ -1,11 +1,36 @@
 <div align="center">
 
 # 📺 IPTV HUB
-### Publicatiebewijs (2 november 2026)
+### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
 
-**237 / 237 M3U-links zijn in de terminal via de CDN gecontroleerd** (HTTP 206, `#EXTM3U`; 0 fouten). [Bekijk alle 237 controleresultaten](catalog/cdn-verification-2026-11-02.json). De bestanden zijn bereikbaar, maar dit bevestigt **niet** dat tv-zenders op Samsung afspelen.
+**Openbare M3U-catalogus voor Samsung Tizen / Lampa, VLC en andere IPTV-spelers.**
 
-> De status `✅ CDN checked in terminal` is gebaseerd op de vastgelegde CDN-verzoeken. De videostreams en distributierechten zijn niet getest.
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/nl/BUNNY_PLAYLISTS.md)
+
+**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+
+[📚 Alle afspeellijsten](docs/nl/BUNNY_PLAYLISTS.md) · [🚀 Snel starten](#quick-start) · [🌍 Landen](#countries) · [📖 Wijzigingen](docs/nl/FORK_CHANGELOG.md)
+
+</div>
+
+---
+
+> [!IMPORTANT]
+> Onafhankelijke fork van [iptv-org/iptv](https://github.com/iptv-org/iptv); geen officiële CDN van IPTV-org. Een gepubliceerde M3U garandeert niet dat een videostream werkt, HD is, gratis kan worden bekeken of legaal opnieuw mag worden verspreid.
+
+## ✨ Wat deze fork toevoegt
+
+| 🌍 | 📂 | 📺 | 🪐 |
+|---|---|---|---|
+| 188 landen met vlaggen | 34 thematische categorieën | Lichte Samsung-afspeellijsten | Aparte Pluto TV- en 18+-lijsten |
+
+**237 openbare M3U-links** = 188 landen + 34 categorieën + 15 speciale afspeellijsten. Dit zijn adressen, **geen 237 bewezen werkende zenders**.
+
+### Publicatiestatus (2 november 2026)
+
+**237/237 openbare M3U-bestanden zijn in de terminal via de CDN gecontroleerd** (HTTP 206 en `#EXTM3U`; 0 fouten). [Volledig controlerapport](catalog/cdn-verification-2026-11-02.json). Dit bevestigt de bereikbaarheid van de bestanden, **niet** of elke zender op Samsung afspeelt.
+
+> **✅ CDN checked in terminal** betekent dat de afspeellijst bereikbaar was. Videoweergave en distributierechten zijn niet gecontroleerd.
 
 <a id="quick-start"></a>
 
@@ -37,8 +62,7 @@ Begin met een kleine lijst: grote M3U-bestanden hebben Lampa op Samsung Tizen ee
 
 ## 🌍 Landen — eerst Rusland, dan Oekraïne
 
-Alle 188 landenlijsten hebben de volledige CDN-controle op 2 november 2026 doorstaan. Rusland staat eerst, gevolgd door Oekraïne.
-
+Alle 188 landenlijsten zijn op 2 november 2026 via de CDN gecontroleerd. Rusland staat eerst, gevolgd door Oekraïne.
 
 | Country / Land / Страна | M3U | Status |
 |---|---|---|
