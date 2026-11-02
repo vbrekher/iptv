@@ -1,6 +1,6 @@
 # 📺 Openbare IPTV-afspeellijsten
 
-[English](../en/BUNNY_PLAYLISTS.md) · [Nederlands](../nl/BUNNY_PLAYLISTS.md) · [Русский](../ru/BUNNY_PLAYLISTS.md) · [GitHub](../../README.md)
+[English](../en/BUNNY_PLAYLISTS.md) · [Nederlands](../nl/BUNNY_PLAYLISTS.md) · [Русский](../BUNNY_PLAYLISTS.md) · [GitHub](../../README.md)
 
 **237 rechtstreekse M3U-links**: 15 speciale afspeellijsten, 34 thematische categorieën en 188 landen. Deze catalogus vermeldt adressen en bewijs uit de terminaluitvoer van 2 november 2026; het is **geen** bewijs dat alle zenders afspelen.
 
