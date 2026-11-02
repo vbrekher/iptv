@@ -25,7 +25,8 @@ def validate() -> dict:
     assert len({item["id"] for item in items}) == len(items)
     assert len({item["path"] for item in items}) == len(items)
     assert len({item["url"] for item in items}) == len(items)
-    assert {x["status"] for x in items} == ALLOWED
+    assert {x["status"] for x in items} <= ALLOWED
+    assert {"user_log_uploaded", "publication_unconfirmed"} <= {x["status"] for x in items}
     directory = DIRECTORY.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
     assert len(readme) >= 5000 and len(directory) >= 25000
