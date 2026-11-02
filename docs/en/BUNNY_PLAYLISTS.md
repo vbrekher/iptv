@@ -293,3 +293,6 @@ Original channel metadata comes from IPTV-org. Pluto metadata originates from Bu
 
 **See the full multilingual project documentation:** [English](../../README.md) · [Nederlands](../../README.nl.md) · [Русский](../../README.ru.md).
 
+
+
+**Original project:** [iptv-org/iptv](https://github.com/iptv-org/iptv) · [Fork changes](FORK_CHANGELOG.md) · [Bunny publishing](PUBLIC_RELEASE.md).
