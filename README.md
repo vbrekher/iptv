@@ -118,7 +118,7 @@ Created from a third-party generator; streams use jmp2.uk and may be geoblocked.
 
 ## 🔞 Adult / XXX
 
-18+ lists are separate from general viewing. A technical HLS response does not prove that the channel is really free: paywall screens and promotional cam video have been observed. No test-only Adulttest listing is published in this fork.
+18+ lists are separate from general viewing. A technical HLS response does not prove that the channel is really free: paywall screens and promotional cam video have been observed. The retired experimental playlist is not included in this public catalog.
 
 [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) · [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u)
 
