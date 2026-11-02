@@ -1,19 +1,88 @@
 <div align="center">
 
 # 📺 IPTV HUB
-### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
 
-**Public M3U directory for Samsung Tizen / Lampa, VLC and other IPTV players.**
+### Global IPTV playlists · Открытые IPTV-плейлисты · Openbare IPTV-afspeellijsten
 
-[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/en/BUNNY_PLAYLISTS.md)
+**Samsung Tizen · Lampa · VLC · M3U · Bunny CDN**
 
-**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE) [![M3U links](https://img.shields.io/badge/M3U-237-2563eb.svg)](catalog/bunny-playlists.json) [![CDN audit](https://img.shields.io/badge/CDN_verified-237%2F237-15803d.svg)](catalog/cdn-verification-2026-11-02.json)
 
-[📚 All playlists](docs/en/BUNNY_PLAYLISTS.md) · [🚀 Quick start](#quick-start) · [🌍 Countries](#countries) · [📖 Changes](docs/en/FORK_CHANGELOG.md)
+### 🌐 [🇬🇧 ENGLISH](#english) &nbsp; · &nbsp; [🇷🇺 РУССКИЙ](#russian) &nbsp; · &nbsp; [🇳🇱 NEDERLANDS](#dutch)
+
+[📚 Full catalog](docs/en/BUNNY_PLAYLISTS.md) · [🔎 Verification report](catalog/cdn-verification-2026-11-02.json) · [🛠 Fork changes](docs/en/FORK_CHANGELOG.md)
 
 </div>
 
 ---
+
+## 🌐 Choose a language · Выберите язык · Kies je taal
+
+| 🇬🇧 English | 🇷🇺 Русский | 🇳🇱 Nederlands |
+|:---:|:---:|:---:|
+| [**English guide ↓**](#english) | [**На русском ↓**](#russian) | [**In het Nederlands ↓**](#dutch) |
+| [All 237 playlists](docs/en/BUNNY_PLAYLISTS.md) | [Все 237 плейлистов](docs/BUNNY_PLAYLISTS.md) | [Alle 237 afspeellijsten](docs/nl/BUNNY_PLAYLISTS.md) |
+| [English homepage](README.md#english) | [Полная русская версия](README.ru.md) | [Volledige Nederlandse versie](README.nl.md) |
+
+| 🌍 188 countries | 🎭 34 categories | 📺 15 featured lists | ✅ 237 / 237 CDN |
+|:---:|:---:|:---:|:---:|
+| Страны / Landen | Категории / Categorieën | Основные / Uitgelicht | M3U files checked |
+
+> **2 November 2026:** All 237 public M3U URLs returned HTTP 206 and an `#EXTM3U` header in the owner's terminal audit. This confirms the M3U files, **not individual channel playback**. / Все 237 M3U-файлов доступны на CDN; воспроизведение каналов не проверено. / Alle 237 M3U-bestanden zijn bereikbaar; videoweergave is niet getest.
+
+---
+
+<a id="russian"></a>
+
+## 🇷🇺 Русский · IPTV HUB
+
+**Удобный публичный каталог плейлистов** для Samsung Tizen, Lampa и VLC. Здесь собраны 188 стран, 34 категории, общий IPTV и отдельные списки Pluto TV.
+
+**Как пользоваться:** скопируй ссылку → открой Lampa с IPTV-плагином или VLC → добавь сетевой плейлист по URL. Для Samsung начинай с облегчённых версий.
+
+| Плейлист | Прямой URL | CDN |
+|---|---|---|
+| 📺 Lampa Clean Lite — до 240 записей | [Открыть M3U](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN checked in terminal |
+| 🪐 Pluto TV Lite — до 240 записей | [Открыть M3U](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN checked in terminal |
+| 🇷🇺 Россия | [ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ✅ CDN checked in terminal |
+| 🇺🇦 Украина | [ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN checked in terminal |
+| 🌐 Общий IPTV | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN checked in terminal |
+| 🌍 Все страны | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ✅ CDN checked in terminal |
+
+**[📖 Полная русская версия](README.ru.md)** · [Все страны с флажками](docs/BUNNY_PLAYLISTS.md#countries) · [Все категории](docs/BUNNY_PLAYLISTS.md#categories) · [История изменений](docs/FORK_CHANGELOG.md)
+
+---
+
+<a id="dutch"></a>
+
+## 🇳🇱 Nederlands · IPTV HUB
+
+**Een openbare lijstencatalogus** voor Samsung Tizen, Lampa en VLC met 188 landen, 34 categorieën en aparte Pluto TV-lijsten.
+
+**Zo werkt het:** kopieer een link → open een IPTV-plug-in in Lampa of VLC → voeg de URL als netwerkafspeellijst toe. Kies op Samsung eerst een lichte afspeellijst.
+
+| Afspeellijst | Rechtstreekse URL | CDN |
+|---|---|---|
+| 📺 Lampa Clean Lite — maximaal 240 items | [Open M3U](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN checked in terminal |
+| 🪐 Pluto TV Lite — maximaal 240 items | [Open M3U](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN checked in terminal |
+| 🇷🇺 Rusland | [ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ✅ CDN checked in terminal |
+| 🇺🇦 Oekraïne | [ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN checked in terminal |
+| 🌐 Volledige IPTV-index | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN checked in terminal |
+| 🌍 Alle landen | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ✅ CDN checked in terminal |
+
+**[📖 Volledige Nederlandstalige handleiding](README.nl.md)** · [Alle landen met vlaggen](docs/nl/BUNNY_PLAYLISTS.md#countries) · [Alle categorieën](docs/nl/BUNNY_PLAYLISTS.md#categories) · [Wijzigingen](docs/nl/FORK_CHANGELOG.md)
+
+---
+
+<a id="english"></a>
+
+## 🇬🇧 English · IPTV HUB
+
+**A public M3U playlist directory** for Samsung Tizen, Lampa and VLC: 188 countries, 34 categories, lightweight profiles and Pluto TV FAST playlists.
+
+**How to start:** copy a playlist URL from the table below → open Lampa with an IPTV plugin or VLC → add a network playlist. Start with a Lite playlist on Samsung.
+
+[**All 237 playlists**](docs/en/BUNNY_PLAYLISTS.md) · [**Fork change history**](docs/en/FORK_CHANGELOG.md)
 
 > [!IMPORTANT]
 > Independent fork of [iptv-org/iptv](https://github.com/iptv-org/iptv), not an official IPTV-org CDN. A published M3U does not guarantee that its source video plays, is HD, is free to watch, or is licensed for redistribution.
@@ -135,13 +204,19 @@ python3 check_public_cdn.py --self-test
 python3 check_public_cdn.py --catalog bunny-playlists.json --output public-cdn-report.json
 ```
 
-The command prints `CDN_CHECKED`, `CDN_FAILED`, and an individual list of failed paths. Share the **local JSON report** to synchronize this README, all three localized directories and the catalog with verified statuses. Do not mark a URL ✅ merely because its Storage upload succeeded. A passing CDN result does not verify the underlying TV stream.
+The command prints `CDN_CHECKED`, `CDN_FAILED`, and all failed paths. The public catalog already includes evidence of the successful 237/237 check on 2 November 2026. Re-run this tool to obtain new evidence; a CDN response does not prove that the underlying TV stream works.
 
 ## 🛠 What we changed compared with upstream
 
 Bunny zone provisioning and Storage 401 recovery; country and category exporters; fixed single-category metadata; Lampa Lite files; Pluto FAST playlists; public M3U index with status evidence; machine-readable catalog. Original IPTV-org generators and channel catalog remain credited.
 
 **Documentation:** [Public directory](docs/en/BUNNY_PLAYLISTS.md) · [Publish missing files](docs/en/PUBLIC_RELEASE.md) · [Fork changes](docs/en/FORK_CHANGELOG.md) · [Bunny setup](docs/en/BUNNY_ONE_CLICK.md) · [Pluto and qist research](docs/en/QIST_PLUTOTV.md) · [Personal playlist builder](docs/en/PERSONAL_BUNNY_IPTV.md) · [Machine-readable JSON](catalog/bunny-playlists.json)
+
+## ❤️ Open-source credits
+
+Thank you to the original [IPTV-org creators and contributors](https://github.com/iptv-org/iptv) for the public catalog on which this independent fork is built. The added Bunny CDN delivery, country/category exports, Lampa-friendly profiles, Pluto collections and verification scripts are documented in the [fork changelog](docs/en/FORK_CHANGELOG.md).
+
+**IPTV HUB does not host or relay third-party video.** Channel availability, rights and playback depend on their owners and upstream providers.
 
 ---
 

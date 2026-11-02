@@ -1,15 +1,16 @@
 <div align="center">
 
 # 📺 IPTV HUB
-### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
 
-**Открытый каталог M3U для Samsung Tizen / Lampa, VLC и других IPTV-плееров.**
+### Открытые IPTV-плейлисты со всего мира
 
-[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/BUNNY_PLAYLISTS.md)
+**Samsung Tizen · Lampa · VLC · Bunny CDN**
 
-**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![CC0](https://img.shields.io/badge/License-CC0-blue.svg)](LICENSE) [![M3U](https://img.shields.io/badge/M3U-237-2563eb.svg)](catalog/bunny-playlists.json) [![CDN](https://img.shields.io/badge/CDN_verified-237%2F237-15803d.svg)](catalog/cdn-verification-2026-11-02.json)
 
-[📚 Все плейлисты](docs/BUNNY_PLAYLISTS.md) · [🚀 Быстрый старт](#quick-start) · [🌍 Страны](#countries) · [📖 Изменения](docs/FORK_CHANGELOG.md)
+### 🌐 [🇬🇧 ENGLISH](README.md#english) &nbsp; · &nbsp; [🇷🇺 РУССКИЙ](README.ru.md) &nbsp; · &nbsp; [🇳🇱 NEDERLANDS](README.nl.md)
+
+[📚 Полный каталог](docs/BUNNY_PLAYLISTS.md) · [🚀 Быстрый старт](#quick-start) · [🌍 Страны](#countries) · [📖 История изменений](docs/FORK_CHANGELOG.md)
 
 </div>
 
