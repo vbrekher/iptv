@@ -12,6 +12,7 @@ on:
       - 'tools/plutotv_bunny.py'
       - 'tools/publish_public_bunny.py'
       - 'tools/verify_public_hub.py'
+      - 'tools/check_public_cdn.py'
       - 'catalog/bunny-playlists.json'
       - 'docs/BUNNY_PLAYLISTS.md'
       - 'docs/PUBLIC_RELEASE.md'
@@ -39,6 +40,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: CDN checker offline self-test (no CDN requests)
+        run: |
+          python3 -m py_compile tools/check_public_cdn.py
+          python3 tools/check_public_cdn.py --self-test
       - name: Compile standalone builder
         run: python3 -m py_compile tools/personal_bunny_playlists.py
       - name: Run offline parser and safety tests
