@@ -8,9 +8,12 @@ This procedure is for an **existing** Storage Zone and Pull Zone. It does not cr
 - **Pull Zone:** `lampa-iptv-875323ab-cdn`
 - **Base URL:** https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/
 
-### Current deployment evidence — 2 November 2026
+### Verified CDN evidence — 2 November 2026
 
-The owner already ran this script successfully: **188 country M3Us + one country index + six Pluto M3Us + three clean Samsung files = 198 successful uploads**. The command returned CDN checks for `plutotv-lite.m3u`, `plutotv-de.m3u`, `plutotv-erotic.m3u`, `lampa-clean-lite.m3u`, and `countries/ua.m3u`, all `true`. The existing `index.m3u` was also checked in an earlier run. This is not a full playback test.
+The owner completed a full terminal check of **all 237 public M3U URLs**: **237 passed, 0 failed**; every CDN response was HTTP 206 with a `#EXTM3U` header. [Complete verification report](../../catalog/cdn-verification-2026-11-02.json). This checks M3U file delivery, not video playback.
+
+The earlier publishing run uploaded 198 files (188 countries, one country index, six Pluto playlists and three clean Samsung playlists). The new 237-file CDN audit also covers files published before that run.
+
 
 ## One command for macOS
 
