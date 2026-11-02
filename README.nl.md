@@ -122,6 +122,21 @@ Gebouwd met gegevens van een externe generator; de streams gebruiken jmp2.uk en 
 
 [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) · [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u)
 
+## ✅ Alle 237 Bunny-CDN-links controleren
+
+Deze alleen-lezen controle test iedere URL op HTTP 200/206 en de echte `#EXTM3U`-header. Er is geen Bunny API-sleutel nodig; video wordt niet afgespeeld. Voer dit uit op je Mac:
+
+```bash
+mkdir -p "$HOME/iptv-bunny"
+cd "$HOME/iptv-bunny"
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/tools/check_public_cdn.py -o check_public_cdn.py
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/catalog/bunny-playlists.json -o bunny-playlists.json
+python3 check_public_cdn.py --self-test
+python3 check_public_cdn.py --catalog bunny-playlists.json --output public-cdn-report.json
+```
+
+De opdracht toont `CDN_CHECKED`, `CDN_FAILED` en alle mislukte paden. Met het **lokale JSON-rapport** kunnen de statussen in de drie talen en in de catalogus worden bijgewerkt. Een geslaagde Storage-upload krijgt niet automatisch ✅; afspeelbaarheid van videostreams is niet getest.
+
 ## 🛠 Wat we hebben aangepast ten opzichte van het origineel
 
 Automatisch instellen van Bunny-zones en herstel van Storage 401; M3U-bestanden per land en categorie; één duidelijke categorie per zender; lichte Lampa-lijsten; Pluto FAST; een openbare directory met publicatiestatus en een machineleesbare catalogus. Het oorspronkelijke IPTV-org-project blijft vermeld.
