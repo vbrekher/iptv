@@ -122,6 +122,21 @@ Created from a third-party generator; streams use jmp2.uk and may be geoblocked.
 
 [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) · [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u)
 
+## ✅ Verify all 237 Bunny CDN URLs
+
+The read-only checker tests every published URL with an HTTP GET (200/206) and a real `#EXTM3U` header. No Bunny API key or channel-stream playback is involved. Run on your Mac:
+
+```bash
+mkdir -p "$HOME/iptv-bunny"
+cd "$HOME/iptv-bunny"
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/tools/check_public_cdn.py -o check_public_cdn.py
+curl -fsSL --retry 3 https://raw.githubusercontent.com/vbrekher/iptv/master/catalog/bunny-playlists.json -o bunny-playlists.json
+python3 check_public_cdn.py --self-test
+python3 check_public_cdn.py --catalog bunny-playlists.json --output public-cdn-report.json
+```
+
+The command prints `CDN_CHECKED`, `CDN_FAILED`, and an individual list of failed paths. Share the **local JSON report** to synchronize this README, all three localized directories and the catalog with verified statuses. Do not mark a URL ✅ merely because its Storage upload succeeded. A passing CDN result does not verify the underlying TV stream.
+
 ## 🛠 What we changed compared with upstream
 
 Bunny zone provisioning and Storage 401 recovery; country and category exporters; fixed single-category metadata; Lampa Lite files; Pluto FAST playlists; public M3U index with status evidence; machine-readable catalog. Original IPTV-org generators and channel catalog remain credited.
