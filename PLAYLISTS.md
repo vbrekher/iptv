@@ -1,5 +1,14 @@
 ## Playlists
 
+> **This is an independent IPTV-org fork.** For Bunny-hosted M3U links, 34
+> categories, 188 country flags and separate Pluto/Adulttest/Tizen files, see
+> **[📚 Bunny Public Playlist Hub](docs/BUNNY_PLAYLISTS.md)** and
+> **[the new project homepage](README.md)**.
+> The below original IPTV-org directory is kept for upstream compatibility,
+> and its NSFW policy applies to the **upstream**, not to the separate opt-in
+> research playlists of this fork.
+
+
 There are several versions of playlists that differ in the way they are grouped. As of January 30th, 2024, we have stopped distributing NSFW channels. For more information, please look at [this issue](https://github.com/iptv-org/iptv/issues/15723).
 
 ### Grouped by category

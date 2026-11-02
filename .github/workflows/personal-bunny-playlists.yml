@@ -11,6 +11,13 @@ on:
       - 'tools/lampa_category_fix.py'
       - 'tools/adulttest.py'
       - 'tools/plutotv_bunny.py'
+      - 'tools/publish_public_bunny.py'
+      - 'tools/verify_public_hub.py'
+      - 'catalog/bunny-playlists.json'
+      - 'docs/BUNNY_PLAYLISTS.md'
+      - 'docs/PUBLIC_RELEASE.md'
+      - 'docs/FORK_CHANGELOG.md'
+      - 'README.md'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -184,3 +191,10 @@ jobs:
                 "GERMANY", report["upstream_germany_entries"],
                 "EROTIC_FAST", report["erotic_fast_channels_germany"])
           PY
+
+      - name: Compile public catalog tools
+        run: python3 -m py_compile tools/publish_public_bunny.py tools/verify_public_hub.py
+      - name: Validate 238 public M3U links and evidence status
+        run: python3 tools/verify_public_hub.py
+      - name: Offline safe country fallback test (no Bunny, no network)
+        run: python3 tools/publish_public_bunny.py --self-test
