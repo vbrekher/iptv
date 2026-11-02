@@ -1,11 +1,36 @@
 <div align="center">
 
 # 📺 IPTV HUB
-### Подтверждение публикации (2 ноября 2026)
+### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
 
-**237 / 237 M3U-ссылок успешно проверены через CDN в терминале** (HTTP 206, `#EXTM3U`; 0 ошибок). [Посмотреть все 237 результатов проверки](catalog/cdn-verification-2026-11-02.json). Это подтверждает доступность файлов, **но не воспроизведение телеканалов** на Samsung.
+**Открытый каталог M3U для Samsung Tizen / Lampa, VLC и других IPTV-плееров.**
 
-> Статус `✅ CDN checked in terminal` основан на результатах HTTP-запросов к CDN. Видеопотоки каналов и права на их распространение отдельно не проверялись.
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/BUNNY_PLAYLISTS.md)
+
+**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+
+[📚 Все плейлисты](docs/BUNNY_PLAYLISTS.md) · [🚀 Быстрый старт](#quick-start) · [🌍 Страны](#countries) · [📖 Изменения](docs/FORK_CHANGELOG.md)
+
+</div>
+
+---
+
+> [!IMPORTANT]
+> Независимый форк [iptv-org/iptv](https://github.com/iptv-org/iptv), а не официальный CDN IPTV-org. Наличие M3U не гарантирует воспроизведение, HD-качество, бесплатный доступ или право распространения.
+
+## ✨ Что добавлено в форк
+
+| 🌍 | 📂 | 📺 | 🪐 |
+|---|---|---|---|
+| 188 стран с флагами | 34 тематические категории | Облегчённые списки для Samsung | Отдельные Pluto TV и 18+ списки |
+
+**237 публичных M3U-ссылок** = 188 стран + 34 категории + 15 основных/специальных плейлистов. Это число адресов, **не количество рабочих каналов**.
+
+### Статус публикации (2 ноября 2026)
+
+**237/237 публичных M3U-файлов прошли CDN-проверку в терминале** (HTTP 206 и `#EXTM3U`; 0 ошибок). [Полный отчёт проверки](catalog/cdn-verification-2026-11-02.json). Это подтверждает доступность самих плейлистов, **но не воспроизведение телеканалов** на Samsung.
+
+> **✅ CDN checked in terminal** означает успешную проверку файла плейлиста. Видеопотоки и права распространения не проверялись.
 
 <a id="quick-start"></a>
 
@@ -37,8 +62,7 @@
 
 ## 🌍 Страны — сначала Россия, затем Украина
 
-Все 188 страновых M3U прошли CDN-проверку 2 ноября 2026 года. Россия остаётся первой, Украина второй.
-
+Все 188 страновых M3U прошли проверку CDN 2 ноября 2026 года. Россия остаётся первой, Украина — второй.
 
 | Country / Land / Страна | M3U | Status |
 |---|---|---|
