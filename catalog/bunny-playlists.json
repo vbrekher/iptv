@@ -4,7 +4,7 @@
   "as_of": "2026-11-02",
   "base_url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/",
   "status_legend": {
-    "user_report_cdn_verified": "CDN response HTTP 200 and #EXTM3U confirmed by user terminal; playback not verified",
+    "user_report_cdn_verified": "HTTP 206 and #EXTM3U confirmed for all 237 URLs in owner's terminal on 2026-11-02; stream playback not verified",
     "user_log_uploaded": "Bunny Storage upload confirmed in user terminal, CDN response not individually checked",
     "publication_unconfirmed": "Expected URL but no proof of upload"
   },
@@ -23,63 +23,67 @@
       "group": "main",
       "title": "Полный IPTV",
       "description": "11 420 записей на момент первого деплоя; не все проверены",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "index-category-m3u",
       "path": "index.category.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.category.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "main",
       "title": "Все категории (исторический)",
-      "description": "Изначальная загрузка, может содержать старую группировку"
+      "description": "Изначальная загрузка, может содержать старую группировку",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "index-clean-m3u",
       "path": "index.clean.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "main",
       "title": "Все категории (исправлено)",
-      "description": "Исправление собрано, новая публикация не подтверждена • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "CDN подтверждён проверкой 02.11.2026",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "index-country-m3u",
       "path": "index.country.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "main",
       "title": "Все страны вместе",
-      "description": "Публикация в Bunny ещё не подтверждена • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "CDN подтверждён проверкой 02.11.2026",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "adult-m3u",
       "path": "adult.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "adult",
       "title": "Adult / XXX (исходный)",
-      "description": "46 ранее технически открытых HLS; много рекламных/платных заглушек"
+      "description": "46 ранее технически открытых HLS; много рекламных/платных заглушек",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "lampa-lite-m3u",
       "path": "lampa-lite.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-lite.m3u",
-      "status": "publication_unconfirmed",
+      "status": "user_report_cdn_verified",
       "group": "tizen",
       "title": "Lampa Lite · 240",
-      "description": "Первый облегчённый вариант"
+      "description": "Первый облегчённый вариант",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "lampa-m3u",
       "path": "lampa.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa.m3u",
-      "status": "publication_unconfirmed",
+      "status": "user_report_cdn_verified",
       "group": "tizen",
       "title": "Lampa · 600",
-      "description": "Расширенный облегчённый вариант"
+      "description": "Расширенный облегчённый вариант",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "lampa-clean-lite-m3u",
@@ -88,28 +92,28 @@
       "status": "user_report_cdn_verified",
       "group": "tizen",
       "title": "Lampa Clean Lite · 240",
-      "description": "Рекомендуется после загрузки",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "description": "Рекомендуется для Samsung",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "lampa-clean-m3u",
       "path": "lampa-clean.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "tizen",
       "title": "Lampa Clean · 600",
-      "description": "Рекомендуется после загрузки • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "Рекомендуется для Samsung",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-m3u",
       "path": "plutotv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "pluto",
       "title": "Pluto TV · все регионы",
-      "description": "3 016 записей по последнему CI-отчёту • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "3 016 записей по последнему CI-отчёту",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-lite-m3u",
@@ -119,7 +123,7 @@
       "group": "pluto",
       "title": "Pluto TV Lite",
       "description": "240 каналов — для Samsung",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-de-m3u",
@@ -129,7 +133,7 @@
       "group": "pluto",
       "title": "Pluto TV Germany",
       "description": "200 каналов",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-erotic-m3u",
@@ -139,345 +143,379 @@
       "group": "pluto",
       "title": "Pluto TV Erotic FAST",
       "description": "8 немецких эротических FAST-каналов",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-us-m3u",
       "path": "plutotv-us.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-us.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "pluto",
       "title": "Pluto TV US",
-      "description": "433 канала • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "433 канала",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "plutotv-gb-m3u",
       "path": "plutotv-gb.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-gb.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "pluto",
       "title": "Pluto TV UK",
-      "description": "183 канала • загружено в Storage 02.11.2026",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "description": "183 канала",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-adultiptv-m3u",
       "path": "categories/adultiptv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/adultiptv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "⚠️ AdultIPTV (старый источник)",
-      "description": "Legacy рекламный/непроверенный 18+ источник"
+      "description": "Legacy рекламный/непроверенный 18+ источник",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-animation-m3u",
       "path": "categories/animation.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/animation.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎨 Анимация",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-auto-m3u",
       "path": "categories/auto.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/auto.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🚗 Автомобили",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-business-m3u",
       "path": "categories/business.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/business.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "💼 Бизнес",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-classic-m3u",
       "path": "categories/classic.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/classic.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "📼 Классика",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-comedy-m3u",
       "path": "categories/comedy.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/comedy.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "😂 Комедии",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-cooking-m3u",
       "path": "categories/cooking.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/cooking.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🍳 Кулинария",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-culture-m3u",
       "path": "categories/culture.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/culture.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🏛️ Культура",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-documentary-m3u",
       "path": "categories/documentary.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/documentary.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎞️ Документальные",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-education-m3u",
       "path": "categories/education.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/education.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎓 Образование",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-entertainment-m3u",
       "path": "categories/entertainment.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/entertainment.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎭 Развлечения",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-family-m3u",
       "path": "categories/family.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/family.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "👨‍👩‍👧 Семья",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-general-m3u",
       "path": "categories/general.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/general.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "📺 Общие",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-interactive-m3u",
       "path": "categories/interactive.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/interactive.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎮 Интерактив",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-kids-m3u",
       "path": "categories/kids.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/kids.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🧸 Детские",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-legislative-m3u",
       "path": "categories/legislative.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/legislative.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🏛️ Парламент",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-lifestyle-m3u",
       "path": "categories/lifestyle.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/lifestyle.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🌿 Образ жизни",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-movies-m3u",
       "path": "categories/movies.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/movies.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎬 Фильмы",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-music-m3u",
       "path": "categories/music.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/music.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🎵 Музыка",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-mycamtv-m3u",
       "path": "categories/mycamtv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/mycamtv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "⚠️ MyCamTV (старый источник)",
-      "description": "Legacy рекламный/непроверенный 18+ источник"
+      "description": "Legacy рекламный/непроверенный 18+ источник",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-news-m3u",
       "path": "categories/news.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/news.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "📰 Новости",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-other-adult-m3u",
       "path": "categories/other-adult.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/other-adult.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🔞 Другие 18+ (старый источник)",
-      "description": "Legacy рекламный/непроверенный 18+ источник"
+      "description": "Legacy рекламный/непроверенный 18+ источник",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-outdoor-m3u",
       "path": "categories/outdoor.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/outdoor.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🏞️ Природа и активный отдых",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-public-m3u",
       "path": "categories/public.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/public.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "📡 Общественные",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-relax-m3u",
       "path": "categories/relax.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/relax.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🧘 Релакс",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-religious-m3u",
       "path": "categories/religious.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/religious.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "⛪ Религия",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-science-m3u",
       "path": "categories/science.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/science.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🔬 Наука",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-series-m3u",
       "path": "categories/series.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/series.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🍿 Сериалы",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-shop-m3u",
       "path": "categories/shop.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/shop.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🛍️ Покупки",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-sports-m3u",
       "path": "categories/sports.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/sports.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "⚽ Спорт",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-travel-m3u",
       "path": "categories/travel.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/travel.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "✈️ Путешествия",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-undefined-m3u",
       "path": "categories/undefined.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/undefined.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "📁 Без категории",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-weather-m3u",
       "path": "categories/weather.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/weather.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🌦️ Погода",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "categories-xxx-m3u",
       "path": "categories/xxx.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "category",
       "title": "🔞 18+ (XXX)",
-      "description": "Категория из первой опубликованной сборки"
+      "description": "Категория из первой опубликованной сборки",
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ru-m3u",
       "path": "countries/ru.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "RU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇷🇺",
       "country_name": "Россия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ua-m3u",
@@ -489,2240 +527,2250 @@
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇦",
       "country_name": "Украина",
-      "evidence": "2026-11-02 terminal CDN_CHECKS=true (index.m3u prior terminal)"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ad-m3u",
       "path": "countries/ad.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ad.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇩",
       "country_name": "Андорра",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ae-m3u",
       "path": "countries/ae.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ae.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇪",
       "country_name": "ОАЭ",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-af-m3u",
       "path": "countries/af.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/af.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AF",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇫",
       "country_name": "Афганистан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ag-m3u",
       "path": "countries/ag.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ag.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇬",
       "country_name": "Антигуа и Барбуда",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-al-m3u",
       "path": "countries/al.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/al.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇱",
       "country_name": "Албания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-am-m3u",
       "path": "countries/am.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/am.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇲",
       "country_name": "Армения",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ao-m3u",
       "path": "countries/ao.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ao.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇴",
       "country_name": "Ангола",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ar-m3u",
       "path": "countries/ar.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ar.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇷",
       "country_name": "Аргентина",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-at-m3u",
       "path": "countries/at.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/at.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇹",
       "country_name": "Австрия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-au-m3u",
       "path": "countries/au.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/au.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇺",
       "country_name": "Австралия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-aw-m3u",
       "path": "countries/aw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/aw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇼",
       "country_name": "Аруба",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-az-m3u",
       "path": "countries/az.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/az.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "AZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇦🇿",
       "country_name": "Азербайджан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ba-m3u",
       "path": "countries/ba.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ba.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇦",
       "country_name": "Босния и Герцеговина",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bb-m3u",
       "path": "countries/bb.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bb.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BB",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇧",
       "country_name": "Барбадос",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bd-m3u",
       "path": "countries/bd.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bd.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇩",
       "country_name": "Бангладеш",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-be-m3u",
       "path": "countries/be.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/be.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇪",
       "country_name": "Бельгия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bf-m3u",
       "path": "countries/bf.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bf.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BF",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇫",
       "country_name": "Буркина-Фасо",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bg-m3u",
       "path": "countries/bg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇬",
       "country_name": "Болгария",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bh-m3u",
       "path": "countries/bh.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bh.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇭",
       "country_name": "Бахрейн",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bi-m3u",
       "path": "countries/bi.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bi.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇮",
       "country_name": "Бурунди",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bj-m3u",
       "path": "countries/bj.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bj.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BJ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇯",
       "country_name": "Бенин",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bn-m3u",
       "path": "countries/bn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇳",
       "country_name": "Бруней",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bo-m3u",
       "path": "countries/bo.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bo.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇴",
       "country_name": "Боливия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bq-m3u",
       "path": "countries/bq.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bq.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BQ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇶",
       "country_name": "Бонэйр, Синт-Эстатиус и Саба",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-br-m3u",
       "path": "countries/br.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/br.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇷",
       "country_name": "Бразилия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bs-m3u",
       "path": "countries/bs.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bs.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BS",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇸",
       "country_name": "Багамы",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bt-m3u",
       "path": "countries/bt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇹",
       "country_name": "Бутан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-by-m3u",
       "path": "countries/by.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/by.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇾",
       "country_name": "Беларусь",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-bz-m3u",
       "path": "countries/bz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "BZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇧🇿",
       "country_name": "Белиз",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ca-m3u",
       "path": "countries/ca.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ca.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇦",
       "country_name": "Канада",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cd-m3u",
       "path": "countries/cd.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cd.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇩",
       "country_name": "Конго - Киншаса",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cg-m3u",
       "path": "countries/cg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇬",
       "country_name": "Конго - Браззавиль",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ch-m3u",
       "path": "countries/ch.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ch.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇭",
       "country_name": "Швейцария",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ci-m3u",
       "path": "countries/ci.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ci.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇮",
       "country_name": "Кот-д’Ивуар",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cl-m3u",
       "path": "countries/cl.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cl.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇱",
       "country_name": "Чили",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cm-m3u",
       "path": "countries/cm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇲",
       "country_name": "Камерун",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cn-m3u",
       "path": "countries/cn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇳",
       "country_name": "Китай",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-co-m3u",
       "path": "countries/co.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/co.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇴",
       "country_name": "Колумбия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cr-m3u",
       "path": "countries/cr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇷",
       "country_name": "Коста-Рика",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cu-m3u",
       "path": "countries/cu.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cu.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇺",
       "country_name": "Куба",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cv-m3u",
       "path": "countries/cv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CV",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇻",
       "country_name": "Кабо-Верде",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cw-m3u",
       "path": "countries/cw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇼",
       "country_name": "Кюрасао",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cy-m3u",
       "path": "countries/cy.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cy.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇾",
       "country_name": "Кипр",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-cz-m3u",
       "path": "countries/cz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "CZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇨🇿",
       "country_name": "Чехия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-de-m3u",
       "path": "countries/de.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "DE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇩🇪",
       "country_name": "Германия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-dk-m3u",
       "path": "countries/dk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/dk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "DK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇩🇰",
       "country_name": "Дания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-do-m3u",
       "path": "countries/do.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/do.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "DO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇩🇴",
       "country_name": "Доминиканская Республика",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-dz-m3u",
       "path": "countries/dz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/dz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "DZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇩🇿",
       "country_name": "Алжир",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ec-m3u",
       "path": "countries/ec.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ec.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "EC",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇨",
       "country_name": "Эквадор",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ee-m3u",
       "path": "countries/ee.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ee.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "EE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇪",
       "country_name": "Эстония",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-eg-m3u",
       "path": "countries/eg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/eg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "EG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇬",
       "country_name": "Египет",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-eh-m3u",
       "path": "countries/eh.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/eh.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "EH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇭",
       "country_name": "Западная Сахара",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-er-m3u",
       "path": "countries/er.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/er.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ER",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇷",
       "country_name": "Эритрея",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-es-m3u",
       "path": "countries/es.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/es.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ES",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇸",
       "country_name": "Испания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-et-m3u",
       "path": "countries/et.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/et.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ET",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇪🇹",
       "country_name": "Эфиопия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-fi-m3u",
       "path": "countries/fi.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fi.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "FI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇫🇮",
       "country_name": "Финляндия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-fr-m3u",
       "path": "countries/fr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "FR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇫🇷",
       "country_name": "Франция",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ge-m3u",
       "path": "countries/ge.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ge.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇪",
       "country_name": "Грузия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gf-m3u",
       "path": "countries/gf.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gf.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GF",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇫",
       "country_name": "Французская Гвиана",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gg-m3u",
       "path": "countries/gg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇬",
       "country_name": "Гернси",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gh-m3u",
       "path": "countries/gh.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gh.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇭",
       "country_name": "Гана",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gm-m3u",
       "path": "countries/gm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇲",
       "country_name": "Гамбия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gn-m3u",
       "path": "countries/gn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇳",
       "country_name": "Гвинея",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gp-m3u",
       "path": "countries/gp.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gp.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GP",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇵",
       "country_name": "Гваделупа",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gq-m3u",
       "path": "countries/gq.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gq.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GQ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇶",
       "country_name": "Экваториальная Гвинея",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gr-m3u",
       "path": "countries/gr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇷",
       "country_name": "Греция",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gt-m3u",
       "path": "countries/gt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇹",
       "country_name": "Гватемала",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gu-m3u",
       "path": "countries/gu.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gu.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇺",
       "country_name": "Гуам",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-gy-m3u",
       "path": "countries/gy.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gy.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "GY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇬🇾",
       "country_name": "Гайана",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-hk-m3u",
       "path": "countries/hk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "HK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇭🇰",
       "country_name": "Гонконг",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-hn-m3u",
       "path": "countries/hn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "HN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇭🇳",
       "country_name": "Гондурас",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-hr-m3u",
       "path": "countries/hr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "HR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇭🇷",
       "country_name": "Хорватия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ht-m3u",
       "path": "countries/ht.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ht.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "HT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇭🇹",
       "country_name": "Гаити",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-hu-m3u",
       "path": "countries/hu.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hu.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "HU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇭🇺",
       "country_name": "Венгрия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-id-m3u",
       "path": "countries/id.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/id.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ID",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇩",
       "country_name": "Индонезия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ie-m3u",
       "path": "countries/ie.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ie.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇪",
       "country_name": "Ирландия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-il-m3u",
       "path": "countries/il.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/il.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇱",
       "country_name": "Израиль",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-in-m3u",
       "path": "countries/in.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/in.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇳",
       "country_name": "Индия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-iq-m3u",
       "path": "countries/iq.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/iq.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IQ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇶",
       "country_name": "Ирак",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ir-m3u",
       "path": "countries/ir.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ir.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇷",
       "country_name": "Иран",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-is-m3u",
       "path": "countries/is.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/is.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IS",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇸",
       "country_name": "Исландия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-it-m3u",
       "path": "countries/it.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/it.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "IT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇮🇹",
       "country_name": "Италия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-jm-m3u",
       "path": "countries/jm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "JM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇯🇲",
       "country_name": "Ямайка",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-jo-m3u",
       "path": "countries/jo.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jo.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "JO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇯🇴",
       "country_name": "Иордания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-jp-m3u",
       "path": "countries/jp.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jp.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "JP",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇯🇵",
       "country_name": "Япония",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ke-m3u",
       "path": "countries/ke.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ke.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇪",
       "country_name": "Кения",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kg-m3u",
       "path": "countries/kg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇬",
       "country_name": "Киргизия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kh-m3u",
       "path": "countries/kh.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kh.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇭",
       "country_name": "Камбоджа",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-km-m3u",
       "path": "countries/km.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/km.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇲",
       "country_name": "Коморы",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kn-m3u",
       "path": "countries/kn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇳",
       "country_name": "Сент-Китс и Невис",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kp-m3u",
       "path": "countries/kp.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kp.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KP",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇵",
       "country_name": "КНДР",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kr-m3u",
       "path": "countries/kr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇷",
       "country_name": "Республика Корея",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kw-m3u",
       "path": "countries/kw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇼",
       "country_name": "Кувейт",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-kz-m3u",
       "path": "countries/kz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "KZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇰🇿",
       "country_name": "Казахстан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-la-m3u",
       "path": "countries/la.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/la.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇦",
       "country_name": "Лаос",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lb-m3u",
       "path": "countries/lb.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lb.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LB",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇧",
       "country_name": "Ливан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lc-m3u",
       "path": "countries/lc.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lc.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LC",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇨",
       "country_name": "Сент-Люсия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-li-m3u",
       "path": "countries/li.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/li.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇮",
       "country_name": "Лихтенштейн",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lk-m3u",
       "path": "countries/lk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇰",
       "country_name": "Шри-Ланка",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lt-m3u",
       "path": "countries/lt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇹",
       "country_name": "Литва",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lu-m3u",
       "path": "countries/lu.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lu.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇺",
       "country_name": "Люксембург",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-lv-m3u",
       "path": "countries/lv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LV",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇻",
       "country_name": "Латвия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ly-m3u",
       "path": "countries/ly.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ly.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "LY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇱🇾",
       "country_name": "Ливия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ma-m3u",
       "path": "countries/ma.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ma.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇦",
       "country_name": "Марокко",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mc-m3u",
       "path": "countries/mc.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mc.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MC",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇨",
       "country_name": "Монако",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-md-m3u",
       "path": "countries/md.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/md.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇩",
       "country_name": "Молдова",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-me-m3u",
       "path": "countries/me.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/me.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ME",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇪",
       "country_name": "Черногория",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mg-m3u",
       "path": "countries/mg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇬",
       "country_name": "Мадагаскар",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mk-m3u",
       "path": "countries/mk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇰",
       "country_name": "Северная Македония",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ml-m3u",
       "path": "countries/ml.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ml.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ML",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇱",
       "country_name": "Мали",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mm-m3u",
       "path": "countries/mm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇲",
       "country_name": "Мьянма (Бирма)",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mn-m3u",
       "path": "countries/mn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇳",
       "country_name": "Монголия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mo-m3u",
       "path": "countries/mo.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mo.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇴",
       "country_name": "Макао",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mq-m3u",
       "path": "countries/mq.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mq.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MQ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇶",
       "country_name": "Мартиника",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mr-m3u",
       "path": "countries/mr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇷",
       "country_name": "Мавритания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mt-m3u",
       "path": "countries/mt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇹",
       "country_name": "Мальта",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mu-m3u",
       "path": "countries/mu.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mu.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MU",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇺",
       "country_name": "Маврикий",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mv-m3u",
       "path": "countries/mv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MV",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇻",
       "country_name": "Мальдивы",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mx-m3u",
       "path": "countries/mx.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mx.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MX",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇽",
       "country_name": "Мексика",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-my-m3u",
       "path": "countries/my.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/my.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇾",
       "country_name": "Малайзия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-mz-m3u",
       "path": "countries/mz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "MZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇲🇿",
       "country_name": "Мозамбик",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-na-m3u",
       "path": "countries/na.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/na.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇦",
       "country_name": "Намибия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-nc-m3u",
       "path": "countries/nc.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nc.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NC",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇨",
       "country_name": "Новая Каледония",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ne-m3u",
       "path": "countries/ne.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ne.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇪",
       "country_name": "Нигер",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ng-m3u",
       "path": "countries/ng.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ng.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇬",
       "country_name": "Нигерия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ni-m3u",
       "path": "countries/ni.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ni.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇮",
       "country_name": "Никарагуа",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-nl-m3u",
       "path": "countries/nl.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇱",
       "country_name": "Нидерланды",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-no-m3u",
       "path": "countries/no.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/no.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇴",
       "country_name": "Норвегия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-np-m3u",
       "path": "countries/np.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/np.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NP",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇵",
       "country_name": "Непал",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-nz-m3u",
       "path": "countries/nz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "NZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇳🇿",
       "country_name": "Новая Зеландия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-om-m3u",
       "path": "countries/om.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/om.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "OM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇴🇲",
       "country_name": "Оман",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pa-m3u",
       "path": "countries/pa.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pa.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇦",
       "country_name": "Панама",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pe-m3u",
       "path": "countries/pe.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pe.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇪",
       "country_name": "Перу",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pf-m3u",
       "path": "countries/pf.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pf.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PF",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇫",
       "country_name": "Французская Полинезия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pg-m3u",
       "path": "countries/pg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇬",
       "country_name": "Папуа — Новая Гвинея",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ph-m3u",
       "path": "countries/ph.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ph.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇭",
       "country_name": "Филиппины",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pk-m3u",
       "path": "countries/pk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇰",
       "country_name": "Пакистан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pl-m3u",
       "path": "countries/pl.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇱",
       "country_name": "Польша",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pr-m3u",
       "path": "countries/pr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇷",
       "country_name": "Пуэрто-Рико",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ps-m3u",
       "path": "countries/ps.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ps.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PS",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇸",
       "country_name": "Палестина",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-pt-m3u",
       "path": "countries/pt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇹",
       "country_name": "Португалия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-py-m3u",
       "path": "countries/py.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/py.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "PY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇵🇾",
       "country_name": "Парагвай",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-qa-m3u",
       "path": "countries/qa.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/qa.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "QA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇶🇦",
       "country_name": "Катар",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-re-m3u",
       "path": "countries/re.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/re.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "RE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇷🇪",
       "country_name": "Реюньон",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ro-m3u",
       "path": "countries/ro.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ro.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "RO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇷🇴",
       "country_name": "Румыния",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-rs-m3u",
       "path": "countries/rs.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/rs.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "RS",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇷🇸",
       "country_name": "Сербия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-rw-m3u",
       "path": "countries/rw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/rw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "RW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇷🇼",
       "country_name": "Руанда",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sa-m3u",
       "path": "countries/sa.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sa.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇦",
       "country_name": "Саудовская Аравия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sd-m3u",
       "path": "countries/sd.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sd.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇩",
       "country_name": "Судан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-se-m3u",
       "path": "countries/se.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/se.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇪",
       "country_name": "Швеция",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sg-m3u",
       "path": "countries/sg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇬",
       "country_name": "Сингапур",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-si-m3u",
       "path": "countries/si.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/si.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SI",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇮",
       "country_name": "Словения",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sk-m3u",
       "path": "countries/sk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇰",
       "country_name": "Словакия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sl-m3u",
       "path": "countries/sl.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sl.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SL",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇱",
       "country_name": "Сьерра-Леоне",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sm-m3u",
       "path": "countries/sm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇲",
       "country_name": "Сан-Марино",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sn-m3u",
       "path": "countries/sn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇳",
       "country_name": "Сенегал",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-so-m3u",
       "path": "countries/so.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/so.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SO",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇴",
       "country_name": "Сомали",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sr-m3u",
       "path": "countries/sr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇷",
       "country_name": "Суринам",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sv-m3u",
       "path": "countries/sv.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sv.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SV",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇻",
       "country_name": "Сальвадор",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sx-m3u",
       "path": "countries/sx.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sx.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SX",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇽",
       "country_name": "Синт-Мартен",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-sy-m3u",
       "path": "countries/sy.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sy.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "SY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇸🇾",
       "country_name": "Сирия",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-td-m3u",
       "path": "countries/td.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/td.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TD",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇩",
       "country_name": "Чад",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tg-m3u",
       "path": "countries/tg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇬",
       "country_name": "Того",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-th-m3u",
       "path": "countries/th.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/th.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TH",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇭",
       "country_name": "Таиланд",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tj-m3u",
       "path": "countries/tj.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tj.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TJ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇯",
       "country_name": "Таджикистан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tm-m3u",
       "path": "countries/tm.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tm.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TM",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇲",
       "country_name": "Туркменистан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tn-m3u",
       "path": "countries/tn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇳",
       "country_name": "Тунис",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tr-m3u",
       "path": "countries/tr.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tr.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TR",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇷",
       "country_name": "Турция",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tt-m3u",
       "path": "countries/tt.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tt.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TT",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇹",
       "country_name": "Тринидад и Тобаго",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tw-m3u",
       "path": "countries/tw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇼",
       "country_name": "Тайвань",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-tz-m3u",
       "path": "countries/tz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "TZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇹🇿",
       "country_name": "Танзания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ug-m3u",
       "path": "countries/ug.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ug.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "UG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇬",
       "country_name": "Уганда",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-uk-m3u",
       "path": "countries/uk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "UK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇰",
       "country_name": "Великобритания",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-us-m3u",
       "path": "countries/us.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "US",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇸",
       "country_name": "Соединенные Штаты",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-uy-m3u",
       "path": "countries/uy.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uy.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "UY",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇾",
       "country_name": "Уругвай",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-uz-m3u",
       "path": "countries/uz.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uz.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "UZ",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇺🇿",
       "country_name": "Узбекистан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-va-m3u",
       "path": "countries/va.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/va.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "VA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇻🇦",
       "country_name": "Ватикан",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-vc-m3u",
       "path": "countries/vc.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vc.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "VC",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇻🇨",
       "country_name": "Сент-Винсент и Гренадины",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ve-m3u",
       "path": "countries/ve.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ve.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "VE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇻🇪",
       "country_name": "Венесуэла",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-vg-m3u",
       "path": "countries/vg.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vg.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "VG",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇻🇬",
       "country_name": "Виргинские о-ва (Великобритания)",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-vn-m3u",
       "path": "countries/vn.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vn.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "VN",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇻🇳",
       "country_name": "Вьетнам",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ws-m3u",
       "path": "countries/ws.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ws.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "WS",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇼🇸",
       "country_name": "Самоа",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-xk-m3u",
       "path": "countries/xk.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/xk.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "XK",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇽🇰",
       "country_name": "Косово",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-ye-m3u",
       "path": "countries/ye.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ye.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "YE",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇾🇪",
       "country_name": "Йемен",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-za-m3u",
       "path": "countries/za.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/za.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ZA",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇿🇦",
       "country_name": "Южно-Африканская Республика",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     },
     {
       "id": "countries-zw-m3u",
       "path": "countries/zw.m3u",
       "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/zw.m3u",
-      "status": "user_log_uploaded",
+      "status": "user_report_cdn_verified",
       "group": "country",
       "title": "ZW",
       "description": "Официальный страновой индекс IPTV-org; воспроизведение не проверено",
       "flag": "🇿🇼",
       "country_name": "Зимбабве",
-      "evidence": "2026-11-02 terminal Storage upload completed, CDN not individually verified"
+      "evidence": "2026-11-02 terminal audit: GET HTTP 206 and #EXTM3U; catalog/cdn-verification-2026-11-02.json; channel playback not tested"
     }
   ],
-  "evidence_source": "User terminal PUBLIC_HUB_UPLOAD_SUMMARY (198 files uploaded) and CDN_CHECKS (five true) supplied 2026-11-02"
+  "evidence_source": "User terminal PUBLIC_HUB_UPLOAD_SUMMARY (198 files uploaded) and CDN_CHECKS (five true) supplied 2026-11-02",
+  "verification": {
+    "evidence_file": "catalog/cdn-verification-2026-11-02.json",
+    "checked_at_utc": "2026-11-02T20:46:42+00:00",
+    "completed_at_utc": "2026-11-02T20:46:51+00:00",
+    "method": "GET Range bytes=0-2047; HTTP 200/206 and #EXTM3U",
+    "passed": 237,
+    "failed": 0,
+    "video_playback_checked": false,
+    "report_source_catalog_sha256": "63d428259a43cc2fb8909e457f852c4b40f45cad9b0049f03727a3f5f5e24384"
+  }
 }
