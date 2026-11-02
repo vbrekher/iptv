@@ -1,11 +1,36 @@
 <div align="center">
 
 # 📺 IPTV HUB
+### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
+
+**Public M3U directory for Samsung Tizen / Lampa, VLC and other IPTV players.**
+
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/en/BUNNY_PLAYLISTS.md)
+
+**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+
+[📚 All playlists](docs/en/BUNNY_PLAYLISTS.md) · [🚀 Quick start](#quick-start) · [🌍 Countries](#countries) · [📖 Changes](docs/en/FORK_CHANGELOG.md)
+
+</div>
+
+---
+
+> [!IMPORTANT]
+> Independent fork of [iptv-org/iptv](https://github.com/iptv-org/iptv), not an official IPTV-org CDN. A published M3U does not guarantee that its source video plays, is HD, is free to watch, or is licensed for redistribution.
+
+## ✨ What makes this fork different
+
+| 🌍 | 📂 | 📺 | 🪐 |
+|---|---|---|---|
+| 188 countries with flags | 34 themed categories | Lightweight Samsung playlists | Separate Pluto TV and adult category lists |
+
+**237 public M3U links** = 188 countries + 34 categories + 15 featured playlists. This is a directory count, **not** a count of playable TV channels.
+
 ### Publication evidence (2 November 2026)
 
-**237 / 237 playlist URLs passed the owner's terminal CDN verification** (HTTP 206, `#EXTM3U`; 0 failures). [View all 237 verification results](catalog/cdn-verification-2026-11-02.json). This confirms playlist-file access, **not** video playback or channel availability on Samsung.
+**237/237 public M3U files passed the owner's terminal CDN check** (HTTP 206 and `#EXTM3U`; 0 failures). [Full verification report](catalog/cdn-verification-2026-11-02.json). This confirms playlist files are accessible, **not** that individual TV channels play on Samsung.
 
-> Status `✅ CDN checked in terminal` is based on the recorded CDN GET checks. The third-party streams, their playback and licensing were not tested.
+> **✅ CDN checked in terminal** indicates successful playlist-file verification. Video playback and licensing were not checked.
 
 <a id="quick-start"></a>
 
@@ -37,8 +62,7 @@ Start with a small playlist: very large M3U files have previously made Lampa slo
 
 ## 🌍 Countries — Russia first, Ukraine second
 
-All 188 country M3U files passed the full 2 November 2026 CDN GET check. Russia and Ukraine remain first by project preference.
-
+All 188 country M3Us passed the 2 November 2026 CDN GET verification. Russia is listed first, Ukraine second.
 
 | Country / Land / Страна | M3U | Status |
 |---|---|---|
