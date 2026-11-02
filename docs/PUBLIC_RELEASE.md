@@ -43,7 +43,7 @@ GitHub README содержит открытые M3U-адреса, но **сам�
 2. Генерация шести Pluto TV M3U из публичных каталогов BuddyChewChew.
 3. Если на Mac есть ранее сохранённые index.m3u и adult.m3u, создание исправленных Tizen/Category-файлов.
 4. Проверка **существующих** Storage/Pull Zone и скрытый ввод одного Account API Key.
-5. Загрузка только недостающих типов файлов: countries, Pluto, новые clean-плейлисты. **Не трогает adulttest.m3u, adult.m3u, прежние категории и исходный index.m3u.**
+5. Загрузка только недостающих типов файлов: countries, Pluto, новые clean-плейлисты. **Не трогает adult.m3u, прежние категории и исходный index.m3u.**
 6. Отчёт на Mac: dist/public-hub/publication-report.json с опубликованными именами и результатом CDN_CHECK.
 
 ## Другие режимы
