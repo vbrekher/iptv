@@ -1,5 +1,7 @@
 # One-command Bunny setup for Lampa IPTV
 
+> **Current setup, 2 November 2026:** 188 countries, the combined country index, six Pluto playlists, and three cleaned Lampa lists were successfully uploaded to Bunny Storage (198 files). Five new CDN checks passed. The first-time installer instructions below are retained for new users; on the owner's account there is no need to create zones or repeat the initial publication.
+
 [English](BUNNY_ONE_CLICK.md) · [Nederlands](../nl/BUNNY_ONE_CLICK.md) · [Русский](../BUNNY_PLAYLISTS.md)
 
 
