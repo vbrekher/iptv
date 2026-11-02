@@ -1,0 +1,135 @@
+<div align="center">
+
+# 📺 IPTV HUB
+### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
+
+**Openbare M3U-catalogus voor Samsung Tizen / Lampa, VLC en andere IPTV-spelers.**
+
+[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/nl/BUNNY_PLAYLISTS.md)
+
+**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
+
+[📚 Alle afspeellijsten](docs/nl/BUNNY_PLAYLISTS.md) · [🚀 Snel starten](#quick-start) · [🌍 Landen](#countries) · [📖 Wijzigingen](docs/nl/FORK_CHANGELOG.md)
+
+</div>
+
+---
+
+> [!IMPORTANT]
+> Onafhankelijke fork van [iptv-org/iptv](https://github.com/iptv-org/iptv); geen officiële CDN van IPTV-org. Een gepubliceerde M3U garandeert niet dat een videostream werkt, HD is, gratis kan worden bekeken of legaal opnieuw mag worden verspreid.
+
+## ✨ Wat deze fork toevoegt
+
+| 🌍 | 📂 | 📺 | 🪐 |
+|---|---|---|---|
+| 188 landen met vlaggen | 34 thematische categorieën | Lichte Samsung-afspeellijsten | Aparte Pluto TV- en 18+-lijsten |
+
+**237 openbare M3U-links** = 188 landen + 34 categorieën + 15 speciale afspeellijsten. Dit zijn adressen, **geen 237 bewezen werkende zenders**.
+
+### Publicatiestatus (2 november 2026)
+
+**6 bestanden gecontroleerd via CDN**, **229 andere bestanden geüpload naar Storage**, **2 onbevestigde paden**. De 6 omvatten de eerder gecontroleerde `index.m3u` en 5 bestanden met `CDN_CHECKS: true` in de nieuwste terminaluitvoer. Dit is geen afspeeltest op een televisie.
+
+> Wat betekent de status?: Storage-upload = Bunny heeft het M3U-bestand aangenomen. CDN gecontroleerd = een HTTP-verzoek in de terminal leverde een M3U-header op. Geen van beide bewijst dat de zender op Samsung afspeelt.
+
+<a id="quick-start"></a>
+
+## 🚀 Snel starten met Samsung / Lampa
+
+Begin met een kleine lijst: grote M3U-bestanden hebben Lampa op Samsung Tizen eerder traag gemaakt.
+
+| Afspeellijst | Inhoud | Publicatie | 
+|---|---|---|
+| **Lampa Clean Lite** | Maximaal 240 items, opgeschoonde categorieën | [lampa-clean-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN gecontroleerd via terminal |
+| **Pluto TV Lite** | 240 Pluto FAST-zenders | [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN gecontroleerd via terminal |
+| **Rusland** | Russische landenlijst | [countries/ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ☑️ Geüpload naar Bunny Storage |
+| **Oekraïne** | Oekraïense landenlijst | [countries/ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN gecontroleerd via terminal |
+| **Volledige IPTV** | Volledige openbare IPTV-index | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN gecontroleerd via terminal |
+| **Landenindex** | Alle landen samen | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ☑️ Geüpload naar Bunny Storage |
+| **Adult / XXX** | Oorspronkelijke 18+-lijst | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ☑️ Geüpload naar Bunny Storage |
+
+<details>
+<summary><strong>📱 Een afspeellijst openen</strong></summary>
+
+1. Open in de IPTV-plug-in van Lampa of in VLC een netwerkafspeellijst.
+2. Kopieer de volledige HTTPS-M3U-link. Kies op Samsung bij voorkeur de Lite-versie.
+3. Voeg de lijst rechtstreeks via de URL toe. Uploaden naar CUB is een andere plug-infunctie.
+4. Een leesbare M3U zegt niets over de afspeelbaarheid van iedere zender; regionale beperkingen zijn mogelijk.
+
+</details>
+
+<a id="countries"></a>
+
+## 🌍 Landen — eerst Rusland, dan Oekraïne
+
+Volgens de laatste terminaluitvoer zijn alle 188 landbestanden naar Storage geüpload. Rusland en Oekraïne staan op verzoek bovenaan, gevolgd door de overige landen.
+
+| Country / Land / Страна | M3U | Status |
+|---|---|---|
+| 🇷🇺 Rusland | [ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇺🇦 Oekraïne | [ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN gecontroleerd via terminal |
+| 🇩🇪 Duitsland | [de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇳🇱 Nederland | [nl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇵🇱 Polen | [pl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇺🇰 Verenigd Koninkrijk | [uk.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇺🇸 Verenigde Staten | [us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇫🇷 Frankrijk | [fr.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fr.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇮🇹 Italië | [it.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/it.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇪🇸 Spanje | [es.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/es.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇨🇦 Canada | [ca.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ca.m3u) | ☑️ Geüpload naar Bunny Storage |
+| 🇯🇵 Japan | [jp.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jp.m3u) | ☑️ Geüpload naar Bunny Storage |
+
+**[🗺 Bekijk alle 188 landen met vlaggen →](docs/nl/BUNNY_PLAYLISTS.md#countries)**
+
+<a id="categories"></a>
+
+## 🎭 Thematische afspeellijsten
+
+34 categorie-M3U's uit de eerste Bunny-upload, waaronder Nieuws, Sport, Films, Wetenschap en XXX. Oudere lijsten kunnen reclame of verouderde streams bevatten.
+
+| M3U | Status |
+|---|---|
+| [Новости](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/news.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Спорт](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/sports.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Фильмы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/movies.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Сериалы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/series.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Музыка](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/music.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Детские](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/kids.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Образование](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/education.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Наука](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/science.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Документальные](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/documentary.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [Путешествия](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/travel.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [XXX)](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u) | ☑️ Geüpload naar Bunny Storage |
+
+**[📂 Bekijk alle 34 categorieën →](docs/nl/BUNNY_PLAYLISTS.md#categories)**
+
+## 🪐 Pluto TV — aparte FAST-afspeellijsten
+
+Gebouwd met gegevens van een externe generator; de streams gebruiken jmp2.uk en kunnen regiobeperkingen hebben. Dit zijn geen vervangers van betaalde premiumzenders.
+
+| M3U | Status |
+|---|---|
+| [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN gecontroleerd via terminal |
+| [plutotv-de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u) | ✅ CDN gecontroleerd via terminal |
+| [plutotv-us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-us.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [plutotv-gb.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-gb.m3u) | ☑️ Geüpload naar Bunny Storage |
+| [plutotv-erotic.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u) | ✅ CDN gecontroleerd via terminal |
+| [plutotv.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u) | ☑️ Geüpload naar Bunny Storage |
+
+## 🔞 Adult / XXX
+
+18+-lijsten staan los van de gewone catalogus. Een geslaagde HLS-controle bewijst niet dat de stream echt gratis is: er zijn betaalschermen en camreclames waargenomen. De oude testlijst is niet opgenomen.
+
+[adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) · [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u)
+
+## 🛠 Wat we hebben aangepast ten opzichte van het origineel
+
+Automatisch instellen van Bunny-zones en herstel van Storage 401; M3U-bestanden per land en categorie; één duidelijke categorie per zender; lichte Lampa-lijsten; Pluto FAST; een openbare directory met publicatiestatus en een machineleesbare catalogus. Het oorspronkelijke IPTV-org-project blijft vermeld.
+
+**Documentatie:** [Openbare catalogus](docs/nl/BUNNY_PLAYLISTS.md) · [Ontbrekende bestanden publiceren](docs/nl/PUBLIC_RELEASE.md) · [Wijzigingen aan de fork](docs/nl/FORK_CHANGELOG.md) · [Bunny instellen](docs/nl/BUNNY_ONE_CLICK.md) · [Pluto en qist-onderzoek](docs/nl/QIST_PLUTOTV.md) · [Persoonlijke afspeellijsten](docs/nl/PERSONAL_BUNNY_IPTV.md) · [JSON-catalogus](catalog/bunny-playlists.json)
+
+---
+
+Gebaseerd op: [iptv-org/iptv](https://github.com/iptv-org/iptv) · Licentie: [CC0](LICENSE) · [Contributing](CONTRIBUTING.md)
+
+Bunny CDN host M3U-metagegevens, niet de videobeelden van derden. Merken, logo's en streams vallen onder de voorwaarden van hun eigenaren.

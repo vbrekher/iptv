@@ -1,12 +1,16 @@
 # 🚀 Публикация полного IPTV-каталога на Bunny
 
+[English](en/PUBLIC_RELEASE.md) · [Nederlands](nl/PUBLIC_RELEASE.md) · [Русский](PUBLIC_RELEASE.md)
+
 **Это инструкция для владельца уже созданных зон, не для создания новых.**
 
 - Storage Zone: lampa-iptv-875323ab-storage
 - Pull Zone: lampa-iptv-875323ab-cdn
 - CDN: https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/
 
-GitHub README содержит открытые M3U-адреса, но **сами новые файлы не появятся на Bunny до запуска**. Ключ хранится только у владельца.
+**Статус на 2 ноября 2026:** команда уже успешно загружала **198 файлов** (188 стран + общий страновой список + 6 Pluto + 3 Clean). Пять CDN-проверок из нового лога вернули `true`; основной `index.m3u` проверялся ранее. Остальные файлы отмечены как загруженные в Storage без отдельной CDN-проверки. Доступность видеопотоков не подтверждена.
+
+Повторный запуск нужен только для обновления источников, а не для первоначальной публикации. Ключ остаётся у владельца.
 
 ## Одна команда для Mac
 
@@ -64,7 +68,8 @@ GitHub README содержит открытые M3U-адреса, но **сам�
 | Pluto Lite | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u |
 | Pluto Germany | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u |
 | Pluto Erotic FAST | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u |
-| Украина | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u |
+| 🇷🇺 Россия | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u |
+| 🇺🇦 Украина | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u |
 | Все страны | https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u |
 
 Весь каталог с флагами и статусами: [BUNNY_PLAYLISTS.md](BUNNY_PLAYLISTS.md).

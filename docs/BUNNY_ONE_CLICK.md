@@ -1,5 +1,7 @@
 # One-command Bunny setup for Lampa IPTV
 
+> **Current setup, 2 November 2026:** 188 countries, the combined country index, six Pluto playlists, and three cleaned Lampa lists were successfully uploaded to Bunny Storage (198 files). Five new CDN checks passed. The first-time installer instructions below are retained for new users; on the owner's account there is no need to create zones or repeat the initial publication.
+
 This opt-in setup is part of the **vbrekher/iptv fork only**. It provisions a
 Bunny **Storage Zone + linked Pull Zone** using one **Bunny Account API Key**
 prompt, creates M3U playlists from publicly referenced IPTV sources, filters

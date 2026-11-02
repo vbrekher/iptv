@@ -26,7 +26,22 @@ def validate() -> dict:
     assert len({item["path"] for item in items}) == len(items)
     assert len({item["url"] for item in items}) == len(items)
     assert {x["status"] for x in items} <= ALLOWED
-    assert {"user_log_uploaded", "publication_unconfirmed"} <= {x["status"] for x in items}
+    assert {"user_report_cdn_verified", "user_log_uploaded", "publication_unconfirmed"} == {x["status"] for x in items}
+    from collections import Counter
+    evidence_counts = Counter(x["status"] for x in items)
+    assert evidence_counts == {
+        "user_report_cdn_verified": 6,
+        "user_log_uploaded": 229,
+        "publication_unconfirmed": 2,
+    }, evidence_counts
+    countries_ordered = [x["path"] for x in items if x["group"] == "country"]
+    assert countries_ordered[:2] == ["countries/ru.m3u", "countries/ua.m3u"]
+    assert len(countries_ordered) == 188
+    for playlist in ("lampa-lite.m3u", "lampa.m3u"):
+        assert next(x for x in items if x["path"] == playlist)["status"] == "publication_unconfirmed"
+    for playlist in ("countries/ua.m3u", "lampa-clean-lite.m3u",
+                     "plutotv-lite.m3u", "plutotv-de.m3u", "plutotv-erotic.m3u"):
+        assert next(x for x in items if x["path"] == playlist)["status"] == "user_report_cdn_verified"
     directory = DIRECTORY.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
     assert len(readme) >= 5000 and len(directory) >= 25000
@@ -57,14 +72,56 @@ def validate() -> dict:
     assert counts["category"] == expected["categories"], counts
     assert sum(counts[k] for k in ("main", "adult", "tizen", "pluto")) == expected["featured"]
     ua = next(x for x in items if x["path"] == "countries/ua.m3u")
-    assert ua["status"] == "user_log_uploaded"
+    assert ua["status"] == "user_report_cdn_verified"
     assert all("adulttest" not in x["path"].lower() for x in items)
-    for path in ("plutotv-lite.m3u", "plutotv.m3u", "index.country.m3u",
-                 "lampa-clean-lite.m3u", "countries/us.m3u"):
-        assert next(x for x in items if x["path"] == path)["status"] == "publication_unconfirmed"
+    for path in ("plutotv.m3u", "plutotv-us.m3u", "plutotv-gb.m3u",
+                 "index.country.m3u", "index.clean.m3u", "countries/us.m3u",
+                 "countries/ru.m3u", "lampa-clean.m3u"):
+        assert next(x for x in items if x["path"] == path)["status"] == "user_log_uploaded"
+    # Every M3U URL is documented in all three languages, not just README.
+    localized = {
+        "en": ROOT / "docs/en/BUNNY_PLAYLISTS.md",
+        "nl": ROOT / "docs/nl/BUNNY_PLAYLISTS.md",
+        "ru": DIRECTORY,
+    }
+    for lang, file in localized.items():
+        content = file.read_text(encoding="utf-8")
+        assert len(content) > 25000, lang
+        assert "adulttest.m3u" not in content.lower()
+        for x in items:
+            assert x["url"] in content, (lang, x["path"])
+        assert content.index("/countries/ru.m3u") < content.index("/countries/ua.m3u"), lang
+    readmes = {
+        "en": README,
+        "nl": ROOT / "README.nl.md",
+        "ru": ROOT / "README.ru.md",
+    }
+    for lang, file in readmes.items():
+        content = file.read_text(encoding="utf-8")
+        assert len(content) >= 6500, lang
+        assert "/countries/ru.m3u" in content and "/countries/ua.m3u" in content
+        assert content.index("/countries/ru.m3u") < content.index("/countries/ua.m3u"), lang
+        assert "README.nl.md" in content and "README.ru.md" in content
+        assert "adulttest.m3u" not in content.lower()
+    required_docs = (
+        "BUNNY_PLAYLISTS.md", "BUNNY_ONE_CLICK.md", "PERSONAL_BUNNY_IPTV.md",
+        "PUBLIC_RELEASE.md", "FORK_CHANGELOG.md", "QIST_PLUTOTV.md",
+    )
+    for lang in ("en", "nl"):
+        for name in required_docs:
+            path = ROOT / "docs" / lang / name
+            assert path.is_file(), str(path)
+            assert len(path.read_text(encoding="utf-8")) >= 600, str(path)
+    for name in ("FAQ.nl.md", "CONTRIBUTING.nl.md", "PLAYLISTS.nl.md"):
+        assert (ROOT / name).is_file(), name
+    for name in ("geo-blocking.md", "playlists.md", "scripts.md",
+                 "stream-description-scheme.md", "stream-id.md",
+                 "stream-testing.md", "tokenized-links.md", "workflows.md",
+                 "xtream-codes.md"):
+        assert (ROOT / "docs/nl" / name).is_file(), name
     if re.search(r"(?:api[_-]?key|password|secret)\s*[:=]\s*['\"][A-Za-z0-9_-]{16,}", directory, re.I):
         raise AssertionError("Potential credential-like literal in public M3U documentation")
-    return {"verified_manifest_items": len(items), "groups": counts}
+    return {"manifest_items": len(items), "groups": counts, "evidence": dict(evidence_counts), "languages": ["en", "nl", "ru"]}
 
 
 def main():
