@@ -17,6 +17,17 @@ on:
       - 'docs/PUBLIC_RELEASE.md'
       - 'docs/FORK_CHANGELOG.md'
       - 'README.md'
+      - 'README.nl.md'
+      - 'README.ru.md'
+      - 'FAQ.nl.md'
+      - 'CONTRIBUTING.nl.md'
+      - 'PLAYLISTS.nl.md'
+      - 'CODE_OF_CONDUCT.nl.md'
+      - 'docs/en/**'
+      - 'docs/nl/**'
+      - 'docs/BUNNY_ONE_CLICK.md'
+      - 'docs/PERSONAL_BUNNY_IPTV.md'
+      - 'docs/QIST_PLUTOTV.md'
       - '.github/workflows/personal-bunny-playlists.yml'
 permissions:
   contents: read
@@ -159,7 +170,7 @@ jobs:
 
       - name: Compile public catalog tools
         run: python3 -m py_compile tools/publish_public_bunny.py tools/verify_public_hub.py
-      - name: Validate 237 public M3U links and evidence status
+      - name: Validate 237 M3Us in EN NL RU, RU-UA ordering and 198 uploads
         run: python3 tools/verify_public_hub.py
       - name: Offline safe country fallback test (no Bunny, no network)
         run: python3 tools/publish_public_bunny.py --self-test
