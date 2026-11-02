@@ -1,0 +1,1910 @@
+{
+  "schema_version": 1,
+  "catalog_sha256": "63d428259a43cc2fb8909e457f852c4b40f45cad9b0049f03727a3f5f5e24384",
+  "checked_at_utc": "2026-11-02T20:46:42+00:00",
+  "completed_at_utc": "2026-11-02T20:46:51+00:00",
+  "method": "GET Range bytes=0-2047; HTTP 200/206 and #EXTM3U",
+  "cdn_host": "lampa-iptv-875323ab-cdn.b-cdn.net",
+  "total": 237,
+  "passed": 237,
+  "failed": 0,
+  "video_playback_checked": false,
+  "results": [
+    {
+      "path": "index.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "index.category.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.category.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "index.clean.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "index.country.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "adult.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "lampa-lite.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-lite.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "lampa.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "lampa-clean-lite.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "lampa-clean.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv-lite.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv-de.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv-erotic.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv-us.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-us.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "plutotv-gb.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-gb.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/adultiptv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/adultiptv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/animation.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/animation.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/auto.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/auto.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/business.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/business.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/classic.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/classic.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/comedy.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/comedy.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/cooking.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/cooking.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/culture.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/culture.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/documentary.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/documentary.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/education.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/education.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/entertainment.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/entertainment.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/family.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/family.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/general.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/general.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/interactive.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/interactive.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/kids.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/kids.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/legislative.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/legislative.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/lifestyle.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/lifestyle.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/movies.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/movies.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/music.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/music.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/mycamtv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/mycamtv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/news.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/news.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/other-adult.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/other-adult.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/outdoor.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/outdoor.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/public.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/public.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/relax.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/relax.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/religious.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/religious.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/science.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/science.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/series.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/series.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/shop.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/shop.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/sports.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/sports.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/travel.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/travel.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/undefined.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/undefined.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/weather.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/weather.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "categories/xxx.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ru.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ua.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ad.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ad.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ae.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ae.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/af.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/af.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ag.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ag.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/al.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/al.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/am.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/am.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ao.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ao.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ar.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ar.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/at.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/at.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/au.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/au.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/aw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/aw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/az.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/az.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ba.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ba.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bb.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bb.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bd.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bd.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/be.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/be.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bf.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bf.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bh.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bh.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bi.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bi.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bj.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bj.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bo.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bo.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bq.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bq.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/br.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/br.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bs.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bs.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/by.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/by.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/bz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/bz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ca.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ca.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cd.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cd.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ch.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ch.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ci.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ci.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cl.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cl.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/co.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/co.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cu.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cu.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cy.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cy.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/cz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/cz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/de.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/dk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/dk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/do.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/do.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/dz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/dz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ec.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ec.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ee.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ee.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/eg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/eg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/eh.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/eh.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/er.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/er.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/es.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/es.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/et.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/et.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/fi.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fi.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/fr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ge.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ge.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gf.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gf.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gh.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gh.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gp.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gp.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gq.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gq.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gu.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gu.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/gy.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/gy.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/hk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/hn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/hr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ht.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ht.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/hu.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/hu.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/id.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/id.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ie.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ie.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/il.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/il.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/in.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/in.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/iq.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/iq.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ir.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ir.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/is.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/is.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/it.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/it.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/jm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/jo.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jo.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/jp.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jp.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ke.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ke.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kh.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kh.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/km.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/km.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kp.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kp.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/kz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/kz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/la.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/la.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lb.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lb.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lc.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lc.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/li.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/li.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lu.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lu.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/lv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/lv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ly.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ly.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ma.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ma.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mc.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mc.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/md.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/md.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/me.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/me.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ml.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ml.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mo.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mo.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mq.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mq.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mu.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mu.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mx.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mx.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/my.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/my.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/mz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/mz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/na.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/na.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/nc.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nc.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ne.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ne.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ng.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ng.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ni.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ni.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/nl.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/no.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/no.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/np.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/np.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/nz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/om.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/om.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pa.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pa.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pe.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pe.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pf.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pf.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ph.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ph.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pl.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ps.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ps.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/pt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/py.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/py.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/qa.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/qa.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/re.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/re.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ro.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ro.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/rs.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/rs.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/rw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/rw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sa.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sa.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sd.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sd.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/se.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/se.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/si.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/si.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sl.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sl.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/so.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/so.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sv.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sv.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sx.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sx.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/sy.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/sy.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/td.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/td.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/th.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/th.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tj.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tj.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tm.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tm.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tr.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tr.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tt.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tt.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/tz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/tz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ug.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ug.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/uk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/us.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/uy.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uy.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/uz.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uz.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/va.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/va.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/vc.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vc.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ve.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ve.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/vg.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vg.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/vn.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/vn.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ws.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ws.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/xk.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/xk.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/ye.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ye.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/za.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/za.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    },
+    {
+      "path": "countries/zw.m3u",
+      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/zw.m3u",
+      "ok": true,
+      "http_status": 206,
+      "m3u_header": true,
+      "error": null
+    }
+  ]
+}
