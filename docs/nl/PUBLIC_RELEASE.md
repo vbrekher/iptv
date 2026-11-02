@@ -8,9 +8,12 @@ Deze werkwijze gebruikt je **bestaande** Storage Zone en Pull Zone. Er worden ge
 - **Pull Zone:** `lampa-iptv-875323ab-cdn`
 - **Base URL:** https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/
 
-### Bevestigde publicatie — 2 november 2026
+### CDN-controle — 2 november 2026
 
-De eigenaar heeft het script uitgevoerd: **188 landen-M3U's + één landenindex + zes Pluto-M3U's + drie opgeschoonde Samsung-lijsten = 198 geslaagde uploads**. De terminal bevestigde de CDN-controle voor `plutotv-lite.m3u`, `plutotv-de.m3u`, `plutotv-erotic.m3u`, `lampa-clean-lite.m3u` en `countries/ua.m3u` (`true`). Ook de bestaande `index.m3u` was eerder gecontroleerd. Dit is geen test van alle videostreams.
+De eigenaar heeft **alle 237 openbare M3U-links** in de terminal gecontroleerd: **237 geslaagd, 0 fouten**; elk bestand leverde HTTP 206 en de `#EXTM3U`-header. [Volledig controlerapport](../../catalog/cdn-verification-2026-11-02.json). Dit controleert M3U-bestanden, niet het afspelen van videostreams.
+
+De eerdere publicatie uploadde 198 bestanden (188 landen, één landenindex, zes Pluto-lijsten en drie opgeschoonde Samsung-lijsten). De nieuwe CDN-controle omvat ook bestanden van eerdere publicaties.
+
 
 ## Eén opdracht voor macOS
 
