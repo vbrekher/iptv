@@ -1,6 +1,6 @@
 # 📺 Публичный каталог IPTV-плейлистов
 
-[English](../en/BUNNY_PLAYLISTS.md) · [Nederlands](../nl/BUNNY_PLAYLISTS.md) · [Русский](../ru/BUNNY_PLAYLISTS.md) · [GitHub](../../README.md)
+[English](en/BUNNY_PLAYLISTS.md) · [Nederlands](nl/BUNNY_PLAYLISTS.md) · [Русский](BUNNY_PLAYLISTS.md) · [GitHub](../README.md)
 
 **237 прямых ссылок M3U**: 15 основных/специальных плейлистов, 34 тематических категории и 188 стран. Статусы составлены по выводу Terminal от 2 ноября 2026 года, **не** по проверке воспроизведения каждого телеканала.
 
