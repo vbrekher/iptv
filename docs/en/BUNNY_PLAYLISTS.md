@@ -1,6 +1,6 @@
 # 📺 Public IPTV playlist directory
 
-[English](../en/BUNNY_PLAYLISTS.md) · [Nederlands](../nl/BUNNY_PLAYLISTS.md) · [Русский](../ru/BUNNY_PLAYLISTS.md) · [GitHub](../../README.md)
+[English](../en/BUNNY_PLAYLISTS.md) · [Nederlands](../nl/BUNNY_PLAYLISTS.md) · [Русский](../BUNNY_PLAYLISTS.md) · [GitHub](../../README.md)
 
 **237 direct M3U links**: 15 featured playlists, 34 thematic categories and 188 countries. This index documents file destinations and evidence from the user's 2 November 2026 terminal run; it does **not** certify that TV broadcasts work.
 
