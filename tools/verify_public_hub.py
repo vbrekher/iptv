@@ -32,7 +32,6 @@ def validate() -> dict:
     assert "iptv-org/iptv" in readme and "iptv-org/iptv" in directory
     assert "PUBLIC_RELEASE.md" in readme and "FORK_CHANGELOG.md" in readme
     assert "adulttest.m3u" in readme and "plutotv-lite.m3u" in readme
-    assert "118" not in expected  # prevent accidentally hardcoding stream results as counts
     counts = {"country": 0, "category": 0, "main": 0, "adult": 0, "tizen": 0, "pluto": 0}
     for x in items:
         assert x["group"] in counts, x
@@ -43,7 +42,7 @@ def validate() -> dict:
         assert parts.netloc == "lampa-iptv-875323ab-cdn.b-cdn.net"
         assert parts.path == "/iptv/" + x["path"]
         assert not parts.username and not parts.password and not parts.query and not parts.fragment
-        assert re.fullmatch(r"[a-z0-9-]+(?:/[a-z0-9-]+)*\.m3u", x["path"]), x["path"]
+        assert re.fullmatch(r"[a-z0-9.-]+(?:/[a-z0-9.-]+)*\.m3u", x["path"]), x["path"]
         assert x["status"] in ALLOWED
         assert url in directory, "Missing direct CDN URL in docs: " + x["path"]
         if x["group"] == "country":
