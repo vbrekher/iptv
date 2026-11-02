@@ -8,7 +8,7 @@
 [![GitHub CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml)
 [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE)
 [![Fork: IPTV-org](https://img.shields.io/badge/Based%20on-IPTV--org-2962ff.svg)](https://github.com/iptv-org/iptv)
-[![Public M3U Directory](https://img.shields.io/badge/Catalog-238%20M3U%20links-2da8a6.svg)](docs/BUNNY_PLAYLISTS.md)
+[![Public M3U Directory](https://img.shields.io/badge/Catalog-237%20M3U%20links-2da8a6.svg)](docs/BUNNY_PLAYLISTS.md)
 
 [**📚 ПОЛНЫЙ КАТАЛОГ**](docs/BUNNY_PLAYLISTS.md) · [**🚀 БЫСТРЫЙ СТАРТ**](#-начните-отсюда) · [**🌍 СТРАНЫ**](#-188-стран-с-флагами) · [**📖 ИЗМЕНЕНИЯ**](docs/FORK_CHANGELOG.md) · [**🛠 ПУБЛИКАЦИЯ**](docs/PUBLIC_RELEASE.md)
 
@@ -21,12 +21,12 @@
 
 ## ✨ Что здесь особенного
 
-| 🌍 Каталог | 📺 Samsung / Lampa | 🔞 Adulttest | 🪐 Pluto TV |
+| 🌍 Каталог | 📺 Samsung / Lampa | 🔞 Adult / XXX | 🪐 Pluto TV |
 |---|---|---|---|
-| 188 стран с флагами, 34 категории | Лёгкие варианты на 240/600 записей | Отдельный тестированный HLS-каталог | Общее, региональное и Erotic FAST |
-| Прямые ссылки на Bunny CDN | Исправленные группы без случайных комбинаций | Отдельный список, не смешанный с Pluto | Источники и логотипы в M3U |
+| 188 стран с флагами, 34 категории | Лёгкие варианты на 240/600 записей | Отдельные 18+ разделы | Общее, региональное и Erotic FAST |
+| Прямые ссылки на Bunny CDN | Исправленные группы без случайных комбинаций | С предупреждениями о доступности и рекламе | Источники и логотипы в M3U |
 
-**238 описанных URL** = 188 стран + 34 категории + 16 основных/специальных списков. Это количество ссылок в каталоге, **не количество проверенных доступных CDN-объектов или телеканалов**.
+**237 описанных URL** = 188 стран + 34 категории + 15 основных/специальных списков. Это количество ссылок в каталоге, **не количество проверенных доступных CDN-объектов или телеканалов**.
 
 ## 🚀 Начните отсюда
 
@@ -39,7 +39,6 @@
 | 🇺🇦 **Украина** | [countries/ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | Украинский телекаталог | ☑️ Был загружен |
 | 🎭 **Все категории** | [index.category.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.category.m3u) | Большой исторический список | ☑️ Был загружен |
 | 🌐 **Общий IPTV** | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | Все каналы (большой файл) | ✅ CDN ранее VERIFIED |
-| 🔞 **Adulttest** | [adulttest.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adulttest.m3u) | HLS-кандидаты 18+ | ✅ CDN по отчёту пользователя |
 
 **Исправленный полный каталог:** [index.clean.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u) · **Общий по странам:** [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) · **Lampa Clean 600:** [lampa-clean.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean.m3u)
 
@@ -108,7 +107,6 @@
 
 | Источник | M3U | Статус |
 |---|---|---|
-| Adulttest · 141 технически открытый HLS по пользовательскому отчёту | [adulttest.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adulttest.m3u) | ✅ CDN подтверждён отчётом |
 | Исторический список · 46 анонимных HLS | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ☑️ Был загружен |
 | Старый категорийный каталог | [categories/xxx.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u) | ☑️ Был загружен |
 | Немецкие Pluto Erotic FAST (не премиальное хардкор-ТВ) | [plutotv-erotic.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u) | ○ Публикация не подтверждена |
@@ -135,7 +133,7 @@ python3 publish_public_bunny.py              # публикация отсутс
 
 Изменения с PR [#1](https://github.com/vbrekher/iptv/pull/1) по [#9](https://github.com/vbrekher/iptv/pull/9) оформлены в [полной истории разработки](docs/FORK_CHANGELOG.md), включая скрипты, исправления ошибок, релизные границы и реальные результаты проверок.
 
-**Документация:** [Каталог M3U](docs/BUNNY_PLAYLISTS.md) · [Развёртывание Bunny](docs/BUNNY_ONE_CLICK.md) · [Adulttest](docs/ADULTTEST.md) · [Pluto и qist](docs/QIST_PLUTOTV.md) · [Обновление публикаций](docs/PUBLIC_RELEASE.md) · [Данные каталога JSON](catalog/bunny-playlists.json)
+**Документация:** [Каталог M3U](docs/BUNNY_PLAYLISTS.md) · [Развёртывание Bunny](docs/BUNNY_ONE_CLICK.md) · [Pluto и qist](docs/QIST_PLUTOTV.md) · [Обновление публикаций](docs/PUBLIC_RELEASE.md) · [Данные каталога JSON](catalog/bunny-playlists.json)
 
 ---
 

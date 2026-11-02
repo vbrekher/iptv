@@ -50,7 +50,7 @@ Brazzers, Penthouse, Hustler or Dorcel subscriptions.
 
 The script uploads ONLY these files under /iptv/ to the pre-existing
 Bunny Storage + Pull Zone from local .bunny-iptv-state.json; no new
-paid resources and no overwrites of adult.m3u, adulttest.m3u or indexes.
+paid resources and no overwrites of adult.m3u or indexes.
 
 ### One Terminal command for macOS
 

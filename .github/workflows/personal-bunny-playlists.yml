@@ -9,7 +9,6 @@ on:
       - 'tools/sync_bunny_countries.py'
       - 'tools/build_lampa_lite.py'
       - 'tools/lampa_category_fix.py'
-      - 'tools/adulttest.py'
       - 'tools/plutotv_bunny.py'
       - 'tools/publish_public_bunny.py'
       - 'tools/verify_public_hub.py'
@@ -134,40 +133,6 @@ jobs:
           print("FULL_LAMPA_GROUPS_PASS", len(full), len(counts))
           PY
 
-      - name: Compile Adulttest multi-source tester
-        run: python3 -m py_compile tools/adulttest.py
-      - name: Adulttest M3U normalization and credential safety tests
-        run: python3 tools/adulttest.py --self-test
-      - name: Check Adulttest source inventory against research
-        run: |
-          python3 - <<'PY'
-          import sys
-          sys.path.insert(0, 'tools')
-          import adulttest
-          assert len(adulttest.SOURCES) == 16
-          assert len({spec[0] for spec in adulttest.SOURCES}) == 16
-          assert len([s for s in adulttest.SOURCES if s[-1] == 'metadata']) == 1
-          for s in adulttest.SOURCES:
-              assert adulttest.source_url(s).startswith('https://raw.githubusercontent.com/')
-          print('ADULTTEST_SOURCE_INVENTORY_PASS', len(adulttest.SOURCES))
-          PY
-
-      - name: Collect Adulttest source metadata (no stream probes, no upload)
-        run: |
-          python3 - <<'PY'
-          import collections,sys
-          sys.path.insert(0,'tools')
-          import adulttest
-          results, rejected, sources = adulttest.collect()
-          print('ADULTTEST_PUBLIC_CANDIDATES_FOUND', len(results),
-                'SOURCES', len(sources), 'EARLY_REJECTIONS', sum(rejected.values()))
-          assert len(sources) == 16
-          assert len(results) >= 30
-          assert all(adulttest.safe_stream_url(candidate.url)[0] for candidate in results)
-          assert all(not adulttest.CAM_WORDS.search(candidate.name) for candidate in results)
-          print('ADULTTEST_SOURCE_DISCOVERY_PASS')
-          PY
-
       - name: Compile PlutoTV standalone installer
         run: python3 -m py_compile tools/plutotv_bunny.py
       - name: Offline PlutoTV playlist security and grouping tests
@@ -194,7 +159,7 @@ jobs:
 
       - name: Compile public catalog tools
         run: python3 -m py_compile tools/publish_public_bunny.py tools/verify_public_hub.py
-      - name: Validate 238 public M3U links and evidence status
+      - name: Validate 237 public M3U links and evidence status
         run: python3 tools/verify_public_hub.py
       - name: Offline safe country fallback test (no Bunny, no network)
         run: python3 tools/publish_public_bunny.py --self-test

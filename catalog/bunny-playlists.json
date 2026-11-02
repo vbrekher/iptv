@@ -11,8 +11,8 @@
   "totals": {
     "countries": 188,
     "categories": 34,
-    "featured": 16,
-    "links": 238
+    "featured": 15,
+    "links": 237
   },
   "items": [
     {
@@ -59,15 +59,6 @@
       "group": "adult",
       "title": "Adult / XXX (исходный)",
       "description": "46 ранее технически открытых HLS; много рекламных/платных заглушек"
-    },
-    {
-      "id": "adulttest-m3u",
-      "path": "adulttest.m3u",
-      "url": "https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adulttest.m3u",
-      "status": "user_report_cdn_verified",
-      "group": "adult",
-      "title": "Adulttest / 18+ (тестовый)",
-      "description": "141 анонимный HLS прошёл тест; качество не подтверждено"
     },
     {
       "id": "lampa-lite-m3u",
