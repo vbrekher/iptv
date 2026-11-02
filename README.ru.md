@@ -1,36 +1,11 @@
 <div align="center">
 
 # 📺 IPTV HUB
-### 🌍 Global channels · 📂 Categories · 🪐 Pluto TV · 🔞 Adult · 🐰 Bunny CDN
+### Подтверждение публикации (2 ноября 2026)
 
-**Открытый каталог M3U для Samsung Tizen / Lampa, VLC и других IPTV-плееров.**
+**237 / 237 M3U-ссылок успешно проверены через CDN в терминале** (HTTP 206, `#EXTM3U`; 0 ошибок). [Посмотреть все 237 результатов проверки](catalog/cdn-verification-2026-11-02.json). Это подтверждает доступность файлов, **но не воспроизведение телеканалов** на Samsung.
 
-[![CI](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml/badge.svg)](https://github.com/vbrekher/iptv/actions/workflows/personal-bunny-playlists.yml) [![License: CC0](https://img.shields.io/badge/License-CC0-5c6bc0.svg)](LICENSE) [![237 M3U](https://img.shields.io/badge/M3U_links-237-2da8a6.svg)](docs/BUNNY_PLAYLISTS.md)
-
-**🌐 Language / Taal / Язык:** [English](README.md) · [Nederlands](README.nl.md) · [Русский](README.ru.md)
-
-[📚 Все плейлисты](docs/BUNNY_PLAYLISTS.md) · [🚀 Быстрый старт](#quick-start) · [🌍 Страны](#countries) · [📖 Изменения](docs/FORK_CHANGELOG.md)
-
-</div>
-
----
-
-> [!IMPORTANT]
-> Независимый форк [iptv-org/iptv](https://github.com/iptv-org/iptv), а не официальный CDN IPTV-org. Наличие M3U не гарантирует воспроизведение, HD-качество, бесплатный доступ или право распространения.
-
-## ✨ Что добавлено в форк
-
-| 🌍 | 📂 | 📺 | 🪐 |
-|---|---|---|---|
-| 188 стран с флагами | 34 тематические категории | Облегчённые списки для Samsung | Отдельные Pluto TV и 18+ списки |
-
-**237 публичных M3U-ссылок** = 188 стран + 34 категории + 15 основных/специальных плейлистов. Это число адресов, **не количество рабочих каналов**.
-
-### Статус публикации (2 ноября 2026)
-
-**6 файлов проверены через CDN**, **229 остальных загружены в Bunny Storage**, **2 адреса пока не подтверждены**. В шесть проверенных входят ранее подтверждённый `index.m3u` и пять файлов с `CDN_CHECKS: true` из нового лога. Воспроизведение на телевизоре отдельно не проверено.
-
-> Что означают статусы?: Загружено в Storage = Bunny принял M3U. CDN проверен = HTTP-запрос в терминале вернул заголовок M3U. Ни один из результатов не гарантирует работу видео на Samsung.
+> Статус `✅ CDN checked in terminal` основан на результатах HTTP-запросов к CDN. Видеопотоки каналов и права на их распространение отдельно не проверялись.
 
 <a id="quick-start"></a>
 
@@ -40,13 +15,13 @@
 
 | Плейлист | Содержимое | Публикация | 
 |---|---|---|
-| **Lampa Clean Lite** | До 240 записей, исправленные категории | [lampa-clean-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN проверен в терминале |
-| **Pluto TV Lite** | 240 Pluto FAST-каналов | [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN проверен в терминале |
-| **Россия** | Россия — страновой список | [countries/ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ☑️ Загружен в Bunny Storage |
-| **Украина** | Украина — страновой список | [countries/ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN проверен в терминале |
-| **Общий IPTV** | Полный публичный IPTV | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN проверен в терминале |
-| **Список стран** | Все страны в одном списке | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ☑️ Загружен в Bunny Storage |
-| **Adult / XXX** | Ранее загруженный 18+ список | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ☑️ Загружен в Bunny Storage |
+| **Lampa Clean Lite** | До 240 записей, исправленные категории | [lampa-clean-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN checked in terminal |
+| **Pluto TV Lite** | 240 Pluto FAST-каналов | [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN checked in terminal |
+| **Россия** | Россия — страновой список | [countries/ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ✅ CDN checked in terminal |
+| **Украина** | Украина — страновой список | [countries/ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN checked in terminal |
+| **Общий IPTV** | Полный публичный IPTV | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN checked in terminal |
+| **Список стран** | Все страны в одном списке | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ✅ CDN checked in terminal |
+| **Adult / XXX** | Ранее загруженный 18+ список | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ✅ CDN checked in terminal |
 
 <details>
 <summary><strong>📱 Как открыть плейлист</strong></summary>
@@ -62,22 +37,23 @@
 
 ## 🌍 Страны — сначала Россия, затем Украина
 
-Все 188 файлов стран загружены в Storage по последнему логу. Россия и Украина закреплены первыми по предпочтению владельца, затем идут остальные страны.
+Все 188 страновых M3U прошли CDN-проверку 2 ноября 2026 года. Россия остаётся первой, Украина второй.
+
 
 | Country / Land / Страна | M3U | Status |
 |---|---|---|
-| 🇷🇺 Россия | [ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇺🇦 Украина | [ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN проверен в терминале |
-| 🇩🇪 Германия | [de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇳🇱 Нидерланды | [nl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇵🇱 Польша | [pl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇺🇰 Великобритания | [uk.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇺🇸 Соединенные Штаты | [us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇫🇷 Франция | [fr.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fr.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇮🇹 Италия | [it.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/it.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇪🇸 Испания | [es.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/es.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇨🇦 Канада | [ca.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ca.m3u) | ☑️ Загружен в Bunny Storage |
-| 🇯🇵 Япония | [jp.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jp.m3u) | ☑️ Загружен в Bunny Storage |
+| 🇷🇺 Россия | [ru.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ru.m3u) | ✅ CDN checked in terminal |
+| 🇺🇦 Украина | [ua.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ua.m3u) | ✅ CDN checked in terminal |
+| 🇩🇪 Германия | [de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/de.m3u) | ✅ CDN checked in terminal |
+| 🇳🇱 Нидерланды | [nl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/nl.m3u) | ✅ CDN checked in terminal |
+| 🇵🇱 Польша | [pl.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/pl.m3u) | ✅ CDN checked in terminal |
+| 🇺🇰 Великобритания | [uk.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/uk.m3u) | ✅ CDN checked in terminal |
+| 🇺🇸 Соединенные Штаты | [us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/us.m3u) | ✅ CDN checked in terminal |
+| 🇫🇷 Франция | [fr.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/fr.m3u) | ✅ CDN checked in terminal |
+| 🇮🇹 Италия | [it.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/it.m3u) | ✅ CDN checked in terminal |
+| 🇪🇸 Испания | [es.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/es.m3u) | ✅ CDN checked in terminal |
+| 🇨🇦 Канада | [ca.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/ca.m3u) | ✅ CDN checked in terminal |
+| 🇯🇵 Япония | [jp.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/countries/jp.m3u) | ✅ CDN checked in terminal |
 
 **[🗺 Показать все 188 стран с флагами →](docs/BUNNY_PLAYLISTS.md#countries)**
 
@@ -89,17 +65,17 @@
 
 | M3U | Status |
 |---|---|
-| [Новости](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/news.m3u) | ☑️ Загружен в Bunny Storage |
-| [Спорт](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/sports.m3u) | ☑️ Загружен в Bunny Storage |
-| [Фильмы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/movies.m3u) | ☑️ Загружен в Bunny Storage |
-| [Сериалы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/series.m3u) | ☑️ Загружен в Bunny Storage |
-| [Музыка](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/music.m3u) | ☑️ Загружен в Bunny Storage |
-| [Детские](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/kids.m3u) | ☑️ Загружен в Bunny Storage |
-| [Образование](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/education.m3u) | ☑️ Загружен в Bunny Storage |
-| [Наука](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/science.m3u) | ☑️ Загружен в Bunny Storage |
-| [Документальные](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/documentary.m3u) | ☑️ Загружен в Bunny Storage |
-| [Путешествия](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/travel.m3u) | ☑️ Загружен в Bunny Storage |
-| [XXX)](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u) | ☑️ Загружен в Bunny Storage |
+| [Новости](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/news.m3u) | ✅ CDN checked in terminal |
+| [Спорт](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/sports.m3u) | ✅ CDN checked in terminal |
+| [Фильмы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/movies.m3u) | ✅ CDN checked in terminal |
+| [Сериалы](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/series.m3u) | ✅ CDN checked in terminal |
+| [Музыка](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/music.m3u) | ✅ CDN checked in terminal |
+| [Детские](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/kids.m3u) | ✅ CDN checked in terminal |
+| [Образование](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/education.m3u) | ✅ CDN checked in terminal |
+| [Наука](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/science.m3u) | ✅ CDN checked in terminal |
+| [Документальные](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/documentary.m3u) | ✅ CDN checked in terminal |
+| [Путешествия](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/travel.m3u) | ✅ CDN checked in terminal |
+| [XXX](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/categories/xxx.m3u) | ✅ CDN checked in terminal |
 
 **[📂 Показать все 34 категории →](docs/BUNNY_PLAYLISTS.md#categories)**
 
@@ -109,12 +85,12 @@
 
 | M3U | Status |
 |---|---|
-| [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN проверен в терминале |
-| [plutotv-de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u) | ✅ CDN проверен в терминале |
-| [plutotv-us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-us.m3u) | ☑️ Загружен в Bunny Storage |
-| [plutotv-gb.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-gb.m3u) | ☑️ Загружен в Bunny Storage |
-| [plutotv-erotic.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u) | ✅ CDN проверен в терминале |
-| [plutotv.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u) | ☑️ Загружен в Bunny Storage |
+| [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN checked in terminal |
+| [plutotv-de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u) | ✅ CDN checked in terminal |
+| [plutotv-us.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-us.m3u) | ✅ CDN checked in terminal |
+| [plutotv-gb.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-gb.m3u) | ✅ CDN checked in terminal |
+| [plutotv-erotic.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u) | ✅ CDN checked in terminal |
+| [plutotv.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u) | ✅ CDN checked in terminal |
 
 ## 🔞 Adult / XXX
 
