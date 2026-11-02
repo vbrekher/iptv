@@ -293,3 +293,6 @@ De oorspronkelijke zendergegevens komen van IPTV-org. Pluto-gegevens komen van B
 
 **Bekijk de volledige meertalige documentatie:** [English](../../README.md) · [Nederlands](../../README.nl.md) · [Русский](../../README.ru.md).
 
+
+
+**Oorspronkelijk project:** [iptv-org/iptv](https://github.com/iptv-org/iptv) · [Wijzigingen aan de fork](FORK_CHANGELOG.md) · [Publiceren op Bunny](PUBLIC_RELEASE.md).
