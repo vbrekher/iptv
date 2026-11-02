@@ -29,6 +29,19 @@ def validate() -> dict:
     from collections import Counter
     evidence_counts = Counter(x["status"] for x in items)
     assert sum(evidence_counts.values()) == expected["links"], evidence_counts
+    assert evidence_counts["user_report_cdn_verified"] == 237, evidence_counts
+    assert catalog["verification"]["evidence_file"] == "catalog/cdn-verification-2026-11-02.json"
+    audit = json.loads((ROOT / catalog["verification"]["evidence_file"]).read_text(encoding="utf-8"))
+    assert audit["total"] == 237 and audit["passed"] == 237 and audit["failed"] == 0
+    assert audit["video_playback_checked"] is False
+    checks = {x["path"]: x for x in audit["results"]}
+    assert len(checks) == 237
+    for item in items:
+        check = checks[item["path"]]
+        assert check["url"] == item["url"], item["path"]
+        assert check["ok"] is True and check["http_status"] in (200, 206)
+        assert check["m3u_header"] is True and check["error"] is None
+
     assert all(x.get("evidence") for x in items if x["status"] == "user_report_cdn_verified")
     countries_ordered = [x["path"] for x in items if x["group"] == "country"]
     assert countries_ordered[:2] == ["countries/ru.m3u", "countries/ua.m3u"]
@@ -73,7 +86,7 @@ def validate() -> dict:
         content = file.read_text(encoding="utf-8")
         assert len(content) > 25000, lang
         assert "adulttest.m3u" not in content.lower()
-        icons = {"user_report_cdn_verified": "✅", "user_log_uploaded": "☑️",
+        icons = {"user_report_cdn_verified": "✅ CDN checked in terminal", "user_log_uploaded": "☑️",
                  "publication_unconfirmed": "○", "cdn_check_failed": "⚠️"}
         lines = content.splitlines()
         for x in items:
