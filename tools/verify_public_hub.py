@@ -72,7 +72,7 @@ def validate() -> dict:
     assert counts["category"] == expected["categories"], counts
     assert sum(counts[k] for k in ("main", "adult", "tizen", "pluto")) == expected["featured"]
     ua = next(x for x in items if x["path"] == "countries/ua.m3u")
-    assert ua["status"] == "user_log_uploaded"
+    assert ua["status"] == "user_report_cdn_verified"
     assert all("adulttest" not in x["path"].lower() for x in items)
     for path in ("plutotv.m3u", "plutotv-us.m3u", "plutotv-gb.m3u",
                  "index.country.m3u", "index.clean.m3u", "countries/us.m3u",
