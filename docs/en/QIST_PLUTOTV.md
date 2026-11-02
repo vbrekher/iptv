@@ -1,5 +1,7 @@
 # qist IPTV research and Pluto TV Bunny uploader
 
+> **Deployment evidence, 2 November 2026:** the user's Terminal reported successful upload of all six Pluto M3Us. CDN checks passed for `plutotv-lite.m3u`, `plutotv-de.m3u`, and `plutotv-erotic.m3u`. Playback of individual channels is not confirmed.
+
 [English](QIST_PLUTOTV.md) · [Nederlands](../nl/QIST_PLUTOTV.md) · [Русский](../BUNNY_PLAYLISTS.md)
 
 
