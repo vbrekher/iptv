@@ -293,3 +293,6 @@
 
 **Открыть многоязычную документацию:** [English](../../README.md) · [Nederlands](../../README.nl.md) · [Русский](../../README.ru.md).
 
+
+
+**Основа:** [iptv-org/iptv](https://github.com/iptv-org/iptv) · [История изменений](FORK_CHANGELOG.md) · [Публикация в Bunny](PUBLIC_RELEASE.md).
