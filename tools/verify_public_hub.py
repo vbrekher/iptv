@@ -18,7 +18,7 @@ ALLOWED = {"user_report_cdn_verified", "user_log_uploaded", "publication_unconfi
 def validate() -> dict:
     catalog = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assert catalog["schema_version"] == 1
-    expected = {"countries": 188, "categories": 34, "featured": 16, "links": 238}
+    expected = {"countries": 188, "categories": 34, "featured": 15, "links": 237}
     assert catalog["totals"] == expected, (catalog["totals"], expected)
     items = catalog["items"]
     assert len(items) == expected["links"]
@@ -29,9 +29,10 @@ def validate() -> dict:
     directory = DIRECTORY.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
     assert len(readme) >= 5000 and len(directory) >= 25000
+    assert "adulttest" not in readme.lower() and "adulttest" not in directory.lower()
     assert "iptv-org/iptv" in readme and "iptv-org/iptv" in directory
     assert "PUBLIC_RELEASE.md" in readme and "FORK_CHANGELOG.md" in readme
-    assert "adulttest.m3u" in readme and "plutotv-lite.m3u" in readme
+    assert "plutotv-lite.m3u" in readme
     counts = {"country": 0, "category": 0, "main": 0, "adult": 0, "tizen": 0, "pluto": 0}
     for x in items:
         assert x["group"] in counts, x
@@ -56,8 +57,7 @@ def validate() -> dict:
     assert sum(counts[k] for k in ("main", "adult", "tizen", "pluto")) == expected["featured"]
     ua = next(x for x in items if x["path"] == "countries/ua.m3u")
     assert ua["status"] == "user_log_uploaded"
-    adulttest = next(x for x in items if x["path"] == "adulttest.m3u")
-    assert adulttest["status"] == "user_report_cdn_verified"
+    assert all("adulttest" not in x["path"].lower() for x in items)
     for path in ("plutotv-lite.m3u", "plutotv.m3u", "index.country.m3u",
                  "lampa-clean-lite.m3u", "countries/us.m3u"):
         assert next(x for x in items if x["path"] == path)["status"] == "publication_unconfirmed"
