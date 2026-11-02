@@ -22,9 +22,13 @@ This independent fork preserves IPTV-org's attribution and adds a Bunny CDN publ
 
 ## Current release evidence
 
-On 2 November 2026, the owner supplied Terminal output showing **198 successful Bunny Storage uploads**: 188 country M3Us, the grouped country index, six Pluto playlists, and three Clean/Lampa playlists. Five CDN checks returned `true`; the main `index.m3u` was verified earlier.
+On 2 November 2026, the owner supplied a read-only audit of **all 237 publicly listed Bunny CDN M3U URLs**. Every request returned **HTTP 206 and an `#EXTM3U` header: 237 passed, 0 failed**. The machine-readable [verification evidence](../../catalog/cdn-verification-2026-11-02.json) is retained in this repository.
 
-The catalog currently contains **237 public M3U links**: 188 countries, 34 categories, 15 featured. **6 are CDN-checked**, **229 additional entries were uploaded to Storage**, and **2 paths are not confirmed**. This does not verify the underlying TV broadcasts.
+The catalog contains **188 countries, 34 categories and 15 featured playlists**. The earlier deployment run had reported 198 Storage uploads; those upload counts are historical, while the 237/237 result measures public CDN file delivery. **Individual video streams and Samsung playback were not tested.**
+
+## Multilingual landing page
+
+The root GitHub README now includes clearly visible **English, Russian and Dutch** sections, language navigation and direct M3U links. Dedicated localized README files and country/category directories are retained. All 237 reported CDN checks remain available for inspection.
 
 ## Quality and access boundaries
 
@@ -36,7 +40,7 @@ The catalog currently contains **237 public M3U links**: 188 countries, 34 categ
 
 ## Current modules
 
-The maintained fork-specific Python modules include personal_bunny_playlists, free_hls_filter, auto_bunny_setup, sync_bunny_countries, build_lampa_lite, lampa_category_fix, plutotv_bunny, publish_public_bunny and verify_public_hub.
+The maintained fork-specific Python modules include personal_bunny_playlists, free_hls_filter, auto_bunny_setup, sync_bunny_countries, build_lampa_lite, lampa_category_fix, plutotv_bunny, publish_public_bunny, check_public_cdn and verify_public_hub.
 
 ## Attribution
 

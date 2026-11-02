@@ -25,10 +25,10 @@ Bunny-basis-URL: `https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/`
 
 | Name | Afspeellijst-URL | Status |
 |---|---|:---:|
-| Полный IPTV | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN checked in terminal |
-| Все категории | [index.category.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.category.m3u) | ✅ CDN checked in terminal |
-| Все категории (исправлено) | [index.clean.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u) | ✅ CDN checked in terminal |
-| Все страны вместе | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ✅ CDN checked in terminal |
+| Volledige IPTV-index | [index.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.m3u) | ✅ CDN checked in terminal |
+| Alle categorieën | [index.category.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.category.m3u) | ✅ CDN checked in terminal |
+| Opgeschoonde categorieën | [index.clean.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.clean.m3u) | ✅ CDN checked in terminal |
+| Alle landen samen | [index.country.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/index.country.m3u) | ✅ CDN checked in terminal |
 | Lampa Lite · 240 | [lampa-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-lite.m3u) | ✅ CDN checked in terminal |
 | Lampa · 600 | [lampa.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa.m3u) | ✅ CDN checked in terminal |
 | Lampa Clean Lite · 240 | [lampa-clean-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/lampa-clean-lite.m3u) | ✅ CDN checked in terminal |
@@ -38,7 +38,7 @@ Bunny-basis-URL: `https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/`
 
 | Name | Afspeellijst-URL | Status |
 |---|---|:---:|
-| Pluto TV · все регионы | [plutotv.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u) | ✅ CDN checked in terminal |
+| Pluto TV · alle regio's | [plutotv.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv.m3u) | ✅ CDN checked in terminal |
 | Pluto TV Lite | [plutotv-lite.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-lite.m3u) | ✅ CDN checked in terminal |
 | Pluto TV Germany | [plutotv-de.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-de.m3u) | ✅ CDN checked in terminal |
 | Pluto TV Erotic FAST | [plutotv-erotic.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/plutotv-erotic.m3u) | ✅ CDN checked in terminal |
@@ -51,7 +51,7 @@ Bunny-basis-URL: `https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/`
 
 | Name | Afspeellijst-URL | Status |
 |---|---|:---:|
-| Adult / XXX (исходный) | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ✅ CDN checked in terminal |
+| Adult / XXX · oorspronkelijke lijst | [adult.m3u](https://lampa-iptv-875323ab-cdn.b-cdn.net/iptv/adult.m3u) | ✅ CDN checked in terminal |
 
 <a id="categories"></a>
 

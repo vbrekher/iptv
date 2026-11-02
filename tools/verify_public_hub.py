@@ -53,6 +53,19 @@ def validate() -> dict:
     assert "iptv-org/iptv" in readme and "iptv-org/iptv" in directory
     assert "PUBLIC_RELEASE.md" in readme and "FORK_CHANGELOG.md" in readme
     assert "plutotv-lite.m3u" in readme
+    # The root landing page visibly serves all three audiences (not just links to translations).
+    required_portal = ("id=\"english\"", "id=\"russian\"", "id=\"dutch\"",
+                       "🇬🇧 English", "🇷🇺 Русский", "🇳🇱 Nederlands",
+                       "237 / 237", "README.ru.md", "README.nl.md")
+    for text_part in required_portal:
+        assert text_part in readme, ("homepage_missing", text_part)
+    assert readme.index('id="russian"') < readme.index('id="english"')
+    assert readme.index("/countries/ru.m3u") < readme.index("/countries/ua.m3u")
+    # EN/NL catalog table headings must not accidentally retain RU-only featured names.
+    for language in ("en", "nl"):
+        page = (ROOT / "docs" / language / "BUNNY_PLAYLISTS.md").read_text(encoding="utf-8")
+        showcase = page.split("## 🚀 ", 1)[1].split("## 🪐 ", 1)[0]
+        assert not re.search(r"[А-Яа-яЁё]", showcase), ("mixed_language_featured_catalog", language)
     counts = {"country": 0, "category": 0, "main": 0, "adult": 0, "tizen": 0, "pluto": 0}
     for x in items:
         assert x["group"] in counts, x

@@ -22,9 +22,13 @@ Deze onafhankelijke fork vermeldt de oorspronkelijke makers van IPTV-org en voeg
 
 ## Bevestigde publicatiestatus
 
-Op 2 november 2026 stuurde de eigenaar terminaluitvoer met **198 geslaagde Bunny Storage-uploads**: 188 landen-M3U's, de gezamenlijke landenindex, zes Pluto-lijsten en drie Clean/Lampa-lijsten. Vijf CDN-controles gaven `true`; de oorspronkelijke `index.m3u` was al eerder gecontroleerd.
+Op 2 november 2026 heeft de eigenaar **alle 237 openbare M3U-URL's** via Bunny CDN gecontroleerd. Elke aanvraag gaf **HTTP 206 en een `#EXTM3U`-header: 237 geslaagd, 0 mislukt**. Het volledige [controlerapport](../../catalog/cdn-verification-2026-11-02.json) is bewaard.
 
-De catalogus bevat nu **237 openbare M3U-links**: 188 landen, 34 categorieën, 15 speciale afspeellijsten. **6 bestanden zijn op de CDN gecontroleerd**, **229 andere zijn naar Storage geüpload** en **2 adressen zijn niet bevestigd**. Dit is geen bewijs dat de onderliggende zenders afspelen.
+De directory bevat **188 landen, 34 categorieën en 15 speciale afspeellijsten**. De eerdere 198 Storage-uploads zijn historische publicatiegegevens; de nieuwe controle betreft alle 237 publieke CDN-bestanden. **Afspelen van individuele videostreams en op Samsung is niet getest.**
+
+## Meertalige hoofdpagina
+
+De GitHub-hoofdpagina toont nu **Engels, Russisch en Nederlands** met duidelijke navigatie en directe M3U-links. De aparte vertaalde README-bestanden en volledige catalogi blijven beschikbaar.
 
 ## Grenzen aan kwaliteit en toegang
 
@@ -36,7 +40,7 @@ De catalogus bevat nu **237 openbare M3U-links**: 188 landen, 34 categorieën, 1
 
 ## Huidige modules
 
-De fork beheert onder andere personal_bunny_playlists, free_hls_filter, auto_bunny_setup, sync_bunny_countries, build_lampa_lite, lampa_category_fix, plutotv_bunny, publish_public_bunny en verify_public_hub.
+De fork beheert onder andere personal_bunny_playlists, free_hls_filter, auto_bunny_setup, sync_bunny_countries, build_lampa_lite, lampa_category_fix, plutotv_bunny, publish_public_bunny, check_public_cdn en verify_public_hub.
 
 ## Herkomst en auteursrecht
 
